@@ -1,37 +1,48 @@
-// Reservation.h - Rodrigo
+// Reservation.h - rodrigo
 
-#ifndef RESERVATION_H
-#define RESERVATION_H
+#ifndef HEADERS_MODEL_RESERVATION_H_
+#define HEADERS_MODEL_RESERVATION_H_
 
 #include <string>
-#include <memory>
 #include "Client.h"
 #include "Room.h"
 #include "Date.h"
 
 class Reservation {
 private:
-    int id;
-    std::shared_ptr<Client> client;
-    std::shared_ptr<Room> room;
+    static int ID;
+    int reservationID;
+    Client* client;
+    Room* room;
     Date checkInDate;
     Date checkOutDate;
-    double totalPrice;
+    float totalPrice;
 
 public:
-    Reservation(int id,
-                std::shared_ptr<Client> client,
-                std::shared_ptr<Room> room,
-                const Date& checkInDate,
-                const Date& checkOutDate,
-                double totalPrice);
+    Reservation(Client* client, Room* room, const Date& checkIn, const Date& checkOut, float totalPrice);
+    Reservation(const Reservation& obj);
+    ~Reservation();
 
-    int getId() const;
-    std::shared_ptr<Client> getClient() const;
-    std::shared_ptr<Room> getRoom() const;
-    Date getCheckInDate() const;
-    Date getCheckOutDate() const;
-    double getTotalPrice() const;
+    Client* getClient() const;
+    void setClient(Client* client);
+
+    Room* getRoom() const;
+    void setRoom(Room* room);
+
+    const Date& getCheckInDate() const;
+    void setCheckInDate(const Date& date);
+
+    const Date& getCheckOutDate() const;
+    void setCheckOutDate(const Date& date);
+
+    float getTotalPrice() const;
+    void setTotalPrice(float price);
+
+    int getReservationID() const;
+    void setReservationID(int id);
+
+    bool operator == (const Reservation& obj) const;
+    bool operator == (int id) const;
 };
 
-#endif // RESERVATION_H
+#endif /* HEADERS_MODEL_RESERVATION_H_*/
