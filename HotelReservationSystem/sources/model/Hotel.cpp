@@ -37,6 +37,10 @@ void Hotel::setName(const string& name) {
     this->name = name;
 }
 
+void Hotel::adicionarQuarto(const Room& quarto) {
+    rooms.addRoom(quarto);
+}
+
 const string& Hotel::getLocation() const {
     return location;
 }

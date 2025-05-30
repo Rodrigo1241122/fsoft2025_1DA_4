@@ -33,6 +33,7 @@ public:
 
     const string& getName() const;
     void setName(const string& name);
+    void adicionarQuarto(const Room& quarto);
 
     const string& getLocation() const;
     void setLocation(const string& location);
