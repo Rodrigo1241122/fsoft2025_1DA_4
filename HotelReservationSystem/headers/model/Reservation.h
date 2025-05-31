@@ -7,6 +7,7 @@
 #include "Client.h"
 #include "Room.h"
 #include "Date.h"
+#include "ReservationStatus.h"
 
 class Reservation {
 private:
