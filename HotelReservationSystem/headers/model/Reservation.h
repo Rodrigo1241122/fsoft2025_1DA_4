@@ -46,8 +46,4 @@ public:
     bool operator == (int id) const;
 };
 
-<<<<<<< HEAD
 #endif /* HEADERS_MODEL_RESERVATION_H_ */
-=======
-#endif /* HEADERS_MODEL_RESERVATION_H_*/
->>>>>>> f476aeca8a9d0ceb8c31a9de5b0084cea7a20e50
