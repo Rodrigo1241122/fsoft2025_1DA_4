@@ -3,7 +3,7 @@
 #ifndef HEADERS_MODEL_PAYMENT_H_
 #define HEADERS_MODEL_PAYMENT_H_
 
-#include "Date.h"
+#include "model/Date.h"
 
 class Payment {
 private:

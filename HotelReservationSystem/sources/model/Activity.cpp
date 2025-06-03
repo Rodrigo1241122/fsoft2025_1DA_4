@@ -1,6 +1,6 @@
 // Activity.cpp - tiago
 
-#include "Activity.h"
+#include "model/Activity.h"
 
 int Activity::CODE = 1;
 

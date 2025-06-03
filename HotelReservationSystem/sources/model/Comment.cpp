@@ -1,6 +1,6 @@
 // Comment.cpp - tiago
 
-#include "Comment.h"
+#include "model/Comment.h"
 
 int Comment::ID = 1;
 

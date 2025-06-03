@@ -30,6 +30,7 @@ public:
     Hotel();
     Hotel(const string& name, const string& location, int stars);
     Hotel(const Hotel& obj);
+    ~Hotel();
 
     const string& getName() const;
     void setName(const string& name);
@@ -41,7 +42,7 @@ public:
     int getStars() const;
     void setStars(int stars);
 
-    RoomContainer& getRoomContainer();
+    const RoomContainer& getRoomContainer() const;
     ServiceContainer& getServiceContainer();
     ActivityContainer& getActivityContainer();
     ReservationContainer& getReservationContainer();

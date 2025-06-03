@@ -1,6 +1,6 @@
 // Coupon.cpp - tiago
 
-#include "Coupon.h"
+#include "model/Coupon.h"
 
 int Coupon::CODE = 1;
 

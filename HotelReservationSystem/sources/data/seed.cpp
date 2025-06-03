@@ -1,9 +1,9 @@
 // seed.cpp - Tiago
 
 #include <vector>
-#include "../model/Hotel.h"
-#include "../model/Room.h"
-#include "../data/RoomType.h"
+#include "model/Hotel.h"
+#include "model/Room.h"
+#include "data/RoomType.h"
 
 std::vector<Hotel> criarHoteisFicticios() {
     std::vector<Hotel> hoteis;

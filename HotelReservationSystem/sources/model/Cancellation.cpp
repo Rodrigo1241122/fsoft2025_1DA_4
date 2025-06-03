@@ -1,6 +1,6 @@
 // Cancellation.cpp - tiago
 
-#include "Cancellation.h"
+#include "model/Cancellation.h"
 
 int Cancellation::CODE = 1;
 

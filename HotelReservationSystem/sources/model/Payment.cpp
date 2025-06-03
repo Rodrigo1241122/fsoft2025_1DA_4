@@ -1,6 +1,6 @@
 // Payment.cpp - tiago
 
-#include "Payment.h"
+#include "model/Payment.h"
 
 int Payment::CODE = 1;
 

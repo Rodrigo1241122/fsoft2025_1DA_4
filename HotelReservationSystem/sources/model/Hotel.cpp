@@ -1,6 +1,6 @@
 // Hotel.cpp - tiago
 
-#include "Hotel.h"
+#include "model/Hotel.h"
 
 Hotel::Hotel() {
     this->name = "Unnamed Hotel";
@@ -57,7 +57,7 @@ void Hotel::setStars(int stars) {
     this->stars = stars;
 }
 
-RoomContainer& Hotel::getRoomContainer() {
+const RoomContainer& Hotel::getRoomContainer() const {
     return rooms;
 }
 
