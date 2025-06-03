@@ -1,4 +1,4 @@
-// Room.h - Tiago
+// Room.h -Ricardo
 
 #ifndef HEADERS_MODEL_ROOM_H_
 #define HEADERS_MODEL_ROOM_H_

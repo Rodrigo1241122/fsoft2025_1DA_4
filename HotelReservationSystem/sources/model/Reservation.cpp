@@ -70,6 +70,7 @@ void Reservation::setReservationID(int id) {
     reservationID = id;
 }
 
+<<<<<<< HEAD
 ReservationStatus Reservation::getStatus() const {
     return status;
 }
@@ -84,4 +85,12 @@ bool Reservation::operator==(const Reservation& obj) const {
 
 bool Reservation::operator==(int id) const {
     return this->reservationID == id;
+=======
+bool Reservation::operator==(const Reservation& obj) const {
+    return reservationID == obj.reservationID;
+}
+
+bool Reservation::operator==(int id) const {
+    return reservationID == id;
+>>>>>>> 9e38deca78b1e02fb621e1c8a0d2e8022301a892
 }
