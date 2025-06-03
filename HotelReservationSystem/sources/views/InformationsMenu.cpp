@@ -1,4 +1,4 @@
-#include "InformationMenu.h"
+#include "InformationsMenu.h"
 #include <iostream>
 #include <string>
 
