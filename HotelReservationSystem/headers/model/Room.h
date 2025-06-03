@@ -28,4 +28,4 @@ public:
     bool operator==(const Room& other) const;
 };
 
-#endif /* HEADERS_MODEL_ROOM_H_ */
+#endif
