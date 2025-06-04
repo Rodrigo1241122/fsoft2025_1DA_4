@@ -1,15 +1,15 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "view/MainView.h"
-#include "view/AccountView.h"
-#include "view/SearchView.h"
-#include "view/ServiceView.h"
-#include "view/ReviewView.h"
-#include "view/PaymentView.h"
-#include "view/ActivitiesView.h"
-#include "view/InformationView.h"
-#include "view/RoomView.h"
+#include "MainView.h"
+#include "AccountView.h"
+#include "SearchView.h"
+#include "ServiceView.h"
+#include "ReviewView.h"
+#include "PaymentView.h"
+#include "ActivitiesView.h"
+#include "InformationView.h"
+#include "RoomView.h"
 
 class Controller {
 private:

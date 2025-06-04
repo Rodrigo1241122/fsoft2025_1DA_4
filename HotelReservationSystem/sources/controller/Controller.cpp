@@ -1,7 +1,7 @@
 // controller.cpp
 
-#include "controller.h"
-#include "utils/Utils.h"
+#include "Controller.h"
+#include "Utils.h"
 #include <iostream>
 
 using namespace std;
