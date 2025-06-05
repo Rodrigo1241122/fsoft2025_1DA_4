@@ -6,8 +6,9 @@
 
 using namespace std;
 
-Controller::Controller() {
-    // Initialization if necessary
+Controller::Controller(const std::vector<Hotel>& hoteis)
+    : hoteis(hoteis) {
+    // Aqui podes inicializar o estado com base nos hotéis se necessário
 }
 
 void Controller::run() {

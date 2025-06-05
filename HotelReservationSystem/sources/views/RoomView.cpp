@@ -1,10 +1,21 @@
 #include "RoomView.h"
 #include <iostream>
+#include <string>
+
+// Conversão do enum RoomType para string
+std::string roomTypeToString(RoomType type) {
+    switch (type) {
+        case RoomType::STANDARD: return "Standard";
+        case RoomType::DOUBLE:   return "Double";
+        case RoomType::DELUXE:   return "Deluxe";
+        default: return "Unknown";
+    }
+}
 
 void RoomView::printRoom(const Room* r) const {
     std::cout << "Room " << r->getNumber()
-              << " - Type: " << r->getType()
-              << ", Price: " << r->getPrice() << "\n";
+              << " - Type: " << roomTypeToString(r->getType())
+              << ", Price: " << r->getPricePerNight() << "\n";
 }
 
 void RoomView::printRooms(const std::vector<Room>& rooms) const {

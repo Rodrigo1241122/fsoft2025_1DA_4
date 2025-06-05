@@ -1,6 +1,9 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include <vector>
+#include "model/Hotel.h"
+
 #include "MainView.h"
 #include "AccountView.h"
 #include "SearchView.h"
@@ -13,6 +16,8 @@
 
 class Controller {
 private:
+    std::vector<Hotel> hoteis;
+
     MainView mainView;
     AccountView accountView;
     SearchView searchView;
@@ -32,7 +37,7 @@ private:
     void runInformation();
 
 public:
-    Controller();
+    Controller(const std::vector<Hotel>& hoteis); // ← atualizado
     void run();
 };
 

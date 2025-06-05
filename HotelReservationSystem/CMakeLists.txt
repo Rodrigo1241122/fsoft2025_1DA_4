@@ -1,68 +1,35 @@
 cmake_minimum_required(VERSION 3.22)
 project(HotelReservationSystem)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-# Diretórios principais
-set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/headers)
-set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
-
-# Diretório: Exceptions
-set(PROJECT_HEADERS_EXCEPTIONS_DIR ${PROJECT_HEADERS_DIR}/exceptions)
-set(PROJECT_SOURCES_EXCEPTIONS_DIR ${PROJECT_SOURCES_DIR}/exceptions)
-include_directories(${PROJECT_HEADERS_EXCEPTIONS_DIR} ${PROJECT_SOURCES_EXCEPTIONS_DIR})
-set(EXCEPTIONS_SOURCE_FILES
-    ${PROJECT_HEADERS_EXCEPTIONS_DIR}/InvalidDataException.h
-    ${PROJECT_SOURCES_EXCEPTIONS_DIR}/InvalidDataException.cpp
-    ${PROJECT_HEADERS_EXCEPTIONS_DIR}/DuplicatedDataException.h
-    ${PROJECT_SOURCES_EXCEPTIONS_DIR}/DuplicatedDataException.cpp
+# Incluir todos os headers
+include_directories(
+    ${PROJECT_SOURCE_DIR}/headers
+    ${PROJECT_SOURCE_DIR}/headers/controller
+    ${PROJECT_SOURCE_DIR}/headers/data
+    ${PROJECT_SOURCE_DIR}/headers/exceptions
+    ${PROJECT_SOURCE_DIR}/headers/model
+    ${PROJECT_SOURCE_DIR}/headers/utils
+    ${PROJECT_SOURCE_DIR}/headers/views
 )
 
-# Diretório: Model
-set(PROJECT_HEADERS_MODEL_DIR ${PROJECT_HEADERS_DIR}/model)
-set(PROJECT_SOURCES_MODEL_DIR ${PROJECT_SOURCES_DIR}/model)
-include_directories(${PROJECT_HEADERS_MODEL_DIR} ${PROJECT_SOURCES_MODEL_DIR})
-set(MODEL_SOURCE_FILES
-    ${PROJECT_HEADERS_MODEL_DIR}/Client.h
-    ${PROJECT_SOURCES_MODEL_DIR}/Client.cpp
-    ${PROJECT_HEADERS_MODEL_DIR}/Hotel.h
-    ${PROJECT_SOURCES_MODEL_DIR}/Hotel.cpp
-    ${PROJECT_HEADERS_MODEL_DIR}/Room.h
-    ${PROJECT_SOURCES_MODEL_DIR}/Room.cpp
-    ${PROJECT_HEADERS_MODEL_DIR}/Reservation.h
-    ${PROJECT_SOURCES_MODEL_DIR}/Reservation.cpp
+# Incluir todos os sources
+include_directories(
+    ${PROJECT_SOURCE_DIR}/sources
+    ${PROJECT_SOURCE_DIR}/sources/controller
+    ${PROJECT_SOURCE_DIR}/sources/data
+    ${PROJECT_SOURCE_DIR}/sources/exceptions
+    ${PROJECT_SOURCE_DIR}/sources/model
+    ${PROJECT_SOURCE_DIR}/sources/utils
+    ${PROJECT_SOURCE_DIR}/sources/views
 )
 
-# Diretório: Views
-set(PROJECT_HEADERS_VIEWS_DIR ${PROJECT_HEADERS_DIR}/views)
-set(PROJECT_SOURCES_VIEWS_DIR ${PROJECT_SOURCES_DIR}/views)
-include_directories(${PROJECT_HEADERS_VIEWS_DIR} ${PROJECT_SOURCES_VIEWS_DIR})
-set(VIEWS_SOURCE_FILES
-    ${PROJECT_HEADERS_VIEWS_DIR}/Menu.h
-    ${PROJECT_SOURCES_VIEWS_DIR}/Menu.cpp
-    ${PROJECT_HEADERS_VIEWS_DIR}/HotelView.h
-    ${PROJECT_SOURCES_VIEWS_DIR}/HotelView.cpp
-    ${PROJECT_HEADERS_VIEWS_DIR}/ClientView.h
-    ${PROJECT_SOURCES_VIEWS_DIR}/ClientView.cpp
+# Agrupar todos os ficheiros fonte
+file(GLOB_RECURSE SOURCE_FILES
+    ${PROJECT_SOURCE_DIR}/sources/*.cpp
+    ${PROJECT_SOURCE_DIR}/main.cpp
 )
 
-# Diretório: Controllers
-set(PROJECT_HEADERS_CONTROLLERS_DIR ${PROJECT_HEADERS_DIR}/controllers)
-set(PROJECT_SOURCES_CONTROLLERS_DIR ${PROJECT_SOURCES_DIR}/controllers)
-include_directories(${PROJECT_HEADERS_CONTROLLERS_DIR} ${PROJECT_SOURCES_CONTROLLERS_DIR})
-set(CONTROLLERS_SOURCE_FILES
-    ${PROJECT_HEADERS_CONTROLLERS_DIR}/ReservationController.h
-    ${PROJECT_SOURCES_CONTROLLERS_DIR}/ReservationController.cpp
-    ${PROJECT_HEADERS_CONTROLLERS_DIR}/HotelController.h
-    ${PROJECT_SOURCES_CONTROLLERS_DIR}/HotelController.cpp
-)
-
-# Executável
-add_executable(
-    HotelReservationSystem
-    main.cpp
-    ${EXCEPTIONS_SOURCE_FILES}
-    ${MODEL_SOURCE_FILES}
-    ${VIEWS_SOURCE_FILES}
-    ${CONTROLLERS_SOURCE_FILES}
-)
+# Criar o executável
+add_executable(HotelReservationSystem ${SOURCE_FILES})
