@@ -8,4 +8,4 @@ public:
     void login() const;
 };
 
-#endif // ACCOUNTVIEW_H
+#endif /* ACCOUNTVIEW_H */

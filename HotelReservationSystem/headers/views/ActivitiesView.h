@@ -8,4 +8,4 @@ public:
     void registerActivity() const;
 };
 
-#endif // ACTIVITIESVIEW_H
+#endif /* ACTIVITIESVIEW_H */

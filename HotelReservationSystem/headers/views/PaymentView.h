@@ -8,4 +8,4 @@ public:
     void viewPaymentDetails() const;
 };
 
-#endif // PAYMENTVIEW_H
+#endif /* PAYMENTVIEW_H */

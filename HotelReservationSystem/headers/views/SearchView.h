@@ -11,4 +11,4 @@ public:
     void cancelReservation() const;
 };
 
-#endif // SEARCHVIEW_H
+#endif /* SEARCHVIEW_H */

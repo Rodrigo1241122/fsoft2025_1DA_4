@@ -8,4 +8,4 @@ public:
     void viewRoomInformation() const;
 };
 
-#endif // INFORMATIONVIEW_H
+#endif /* INFORMATIONVIEW_H */

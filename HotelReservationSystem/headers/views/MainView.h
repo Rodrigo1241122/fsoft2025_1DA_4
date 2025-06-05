@@ -6,4 +6,4 @@ public:
     int menuMain() const;
 };
 
-#endif // MAINVIEW_H
+#endif /* MAINVIEW_H */

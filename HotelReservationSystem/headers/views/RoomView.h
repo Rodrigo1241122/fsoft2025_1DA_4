@@ -11,4 +11,4 @@ public:
     void printRoomNotFound(int number) const;
 };
 
-#endif // ROOMVIEW_H
+#endif /* ROOMVIEW_H */

@@ -8,4 +8,4 @@ public:
     void requestService() const;
 };
 
-#endif // SERVICEVIEW_H
+#endif /* SERVICEVIEW_H */
