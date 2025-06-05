@@ -1,12 +1,16 @@
+//reviewview.h
 #ifndef REVIEWVIEW_H
 #define REVIEWVIEW_H
 
 class ReviewView {
 public:
-    int menuReview() const;
-    void leaveStarRating() const;
-    void writeComment() const;
-    void submitReview() const;
+    int display_review_menu();
+
+    void star_rating();
+
+    void write_comment();
+
+    void submit_review();
 };
 
-#endif // REVIEWVIEW_H
+#endif /* REVIEWVIEW_H */

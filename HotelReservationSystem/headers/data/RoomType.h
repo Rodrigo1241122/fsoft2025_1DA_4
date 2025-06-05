@@ -9,4 +9,4 @@ enum class RoomType {
     DELUXE
 };
 
-#endif // ROOM_TYPE_H
+#endif /* ROOM_TYPE_H */

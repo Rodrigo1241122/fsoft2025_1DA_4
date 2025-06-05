@@ -3,7 +3,7 @@
 
 int MainView::menuMain() const {
     int option;
-    std::cout << "\n=== Main Menu ===\n";
+    std::cout << "=== Main Menu ===\n";
     std::cout << "1. Account\n";
     std::cout << "2. Search\n";
     std::cout << "3. Services\n";

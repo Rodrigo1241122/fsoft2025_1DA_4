@@ -14,7 +14,7 @@ private:
     int commentID;
     string author;
     string text;
-    int rating; // 1 a 5 estrelas
+    int rating; 
     Date date;
 
 public:

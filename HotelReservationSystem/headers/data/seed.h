@@ -6,7 +6,6 @@
 #include <vector>
 #include "model/Hotel.h"
 
-// Função que cria e devolve uma lista de hotéis fictícios com quartos atribuídos
 std::vector<Hotel> criarHoteisFicticios();
 
-#endif // DATA_SEED_H
+#endif /* DATA_SEED_H */

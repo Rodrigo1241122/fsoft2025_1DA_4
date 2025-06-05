@@ -30,4 +30,4 @@ public:
     bool operator!=(const Person& other) const;
 };
 
-#endif
+#endif /* PERSON_H */

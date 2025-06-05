@@ -13,7 +13,7 @@ private:
     static int CODE;
     int couponCode;
     string description;
-    float discountPercentage; // entre 0 e 100
+    float discountPercentage; 
     Date validUntil;
 
 public:

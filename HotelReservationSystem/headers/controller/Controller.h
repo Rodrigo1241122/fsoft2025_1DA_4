@@ -36,4 +36,4 @@ public:
     void run();
 };
 
-#endif // CONTROLLER_H
+#endif /* CONTROLLER_H */

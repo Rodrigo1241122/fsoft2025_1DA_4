@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void ReviewView::display_review_menu() {
+int ReviewView::display_review_menu() {
     int option;
 
     cout << "\n" << string(40, '=') << endl;

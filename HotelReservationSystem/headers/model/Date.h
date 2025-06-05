@@ -6,7 +6,7 @@
 class Date {
 private:
     int day;
-    int month; // 1 - Janeiro, ..., 12 - Dezembro
+    int month; 
     int year;
 
     bool isLeapYear(int year);

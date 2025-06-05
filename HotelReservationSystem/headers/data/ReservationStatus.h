@@ -8,4 +8,4 @@ enum class ReservationStatus {
     CANCELED
     };
 
-    #endif
+#endif /* RESERVATION_STATUS_H */

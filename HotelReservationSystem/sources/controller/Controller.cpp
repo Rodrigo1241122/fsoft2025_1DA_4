@@ -1,13 +1,12 @@
 // controller.cpp
 
 #include "Controller.h"
-#include "Utils.h"
+#include "Utils.h"// rodrigo a fazer
 #include <iostream>
 
 using namespace std;
 
 Controller::Controller() {
-    // Initialization if necessary
 }
 
 void Controller::run() {
@@ -69,11 +68,11 @@ void Controller::runService() {
 void Controller::runReview() {
     int option;
     do {
-        option = reviewView.menuReview();
+        option = reviewView.display_review_menu();
         switch (option) {
-            case 1: reviewView.leaveStarRating(); break;
-            case 2: reviewView.writeComment(); break;
-            case 3: reviewView.submitReview(); break;
+            case 1: reviewView.star_rating(); break;
+            case 2: reviewView.write_comment(); break;
+            case 3: reviewView.submit_review(); break;
             default: break;
         }
     } while (option != 0);

@@ -10,7 +10,7 @@ std::vector<Hotel> criarHoteisFicticios() {
 
     Hotel h1("Hotel Mar Azul", "Porto", 4);
     h1.adicionarQuarto(Room(101, 80.0, RoomType::STANDARD));
-    h1.adicionarQuarto(Room(102, 120.0, RoomType::DOUBLE));
+    h1.adicionarQuarto(Room(102, 120.0, RoomType::DOUBLE));// para tiago: n devia ser suite?(martim)
     h1.adicionarQuarto(Room(103, 150.0, RoomType::DELUXE));
     hoteis.push_back(h1);
 
