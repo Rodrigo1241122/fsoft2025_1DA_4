@@ -16,4 +16,4 @@ public:
     static void pause(const std::string& message = "Press ENTER to continue...");
 };
 
-#endif // UTILS_H
+#endif /* UTILS_H */
