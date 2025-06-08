@@ -1,32 +1,30 @@
-// Service.h - tiago
+// Service.h - Tiago
 
 #ifndef HEADERS_MODEL_SERVICE_H_
 #define HEADERS_MODEL_SERVICE_H_
 
 #include <string>
-#include "model/Date.h"
-
-using namespace std;
+#include "Date.h"
 
 class Service {
 private:
     static int CODE;
     int serviceCode;
-    string name;
-    string description;
+    std::string name;
+    std::string description;
     float price;
     Date availableDate;
 
 public:
-    Service(const string& name, const string& description, float price, const Date& availableDate);
+    Service(const std::string& name, const std::string& description, float price, const Date& availableDate);
     Service(const Service& obj);
     ~Service();
 
-    const string& getName() const;
-    void setName(const string& name);
+    const std::string& getName() const;
+    void setName(const std::string& name);
 
-    const string& getDescription() const;
-    void setDescription(const string& description);
+    const std::string& getDescription() const;
+    void setDescription(const std::string& description);
 
     float getPrice() const;
     void setPrice(float price);
@@ -37,8 +35,10 @@ public:
     int getServiceCode() const;
     void setServiceCode(int code);
 
-    bool operator == (const Service& obj) const;
-    bool operator == (int code) const;
+    int getId() const; // novo alias para getServiceCode()
+
+    bool operator==(const Service& obj) const;
+    bool operator==(int code) const;
 };
 
 #endif /* HEADERS_MODEL_SERVICE_H_ */

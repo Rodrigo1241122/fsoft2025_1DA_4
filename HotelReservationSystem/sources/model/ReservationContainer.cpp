@@ -1,6 +1,7 @@
 // ReservationContainer.cpp - Tiago
 
 #include "model/ReservationContainer.h"
+#include "model/Reservation.h"
 
 void ReservationContainer::addReservation(const std::shared_ptr<Reservation>& reservation) {
     reservations.push_back(reservation);

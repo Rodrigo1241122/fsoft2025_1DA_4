@@ -1,6 +1,7 @@
-// Date.cpp - tiago
-
-#include "model/Date.h"
+#include "date.h"
+#include <chrono>
+#include <ctime>
+#include <cstdlib>
 
 Date::Date() {
     this->day = 1;
@@ -73,4 +74,40 @@ bool Date::operator<(const Date& obj) const {
     if (this->year != obj.year) return this->year < obj.year;
     if (this->month != obj.month) return this->month < obj.month;
     return this->day < obj.day;
+}
+
+Date getTodayDate() {
+    using namespace std::chrono;
+    system_clock::time_point today = system_clock::now();
+    time_t today_time = system_clock::to_time_t(today);
+    tm* today_tm = localtime(&today_time);
+
+    return Date(today_tm->tm_mday, today_tm->tm_mon + 1, today_tm->tm_year + 1900);
+}
+
+int Date::daysBetween(const Date& other) const {
+    int days1 = this->year * 365 + this->day;
+    int days2 = other.year * 365 + other.day;
+
+    static const int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    for (int m = 0; m < this->month - 1; m++) {
+        days1 += daysInMonth[m];
+    }
+    for (int m = 0; m < other.month - 1; m++) {
+        days2 += daysInMonth[m];
+    }
+
+    return std::abs(days1 - days2);
+}
+
+bool Date::isBefore(const Date& obj) const {
+    if (this->year != obj.year) return this->year < obj.year;
+    if (this->month != obj.month) return this->month < obj.month;
+    return this->day < obj.day;
+}
+
+bool Date::isAfter(const Date& obj) const {
+    if (this->year != obj.year) return this->year > obj.year;
+    if (this->month != obj.month) return this->month > obj.month;
+    return this->day > obj.day;
 }

@@ -1,23 +1,19 @@
-// Client.cpp - tiago
-
 #include "model/Client.h"
 
 int Client::ID = 1;
 
-Client::Client(const string& name, const string& email, const string& phone, const Date& birthDate) {
+Client::Client(const std::string& name, const std::string& email)
+    : name(name), email(email), balance(1000.0f), lastPaymentDate(0), lastPaymentAmount(0.0) {
     this->clientID = ID++;
-    this->name = name;
-    this->email = email;
-    this->phone = phone;
-    this->birthDate = birthDate;
 }
 
 Client::Client(const Client& obj) {
     this->clientID = obj.clientID;
     this->name = obj.name;
     this->email = obj.email;
-    this->phone = obj.phone;
-    this->birthDate = obj.birthDate;
+    this->balance = obj.balance;
+    this->lastPaymentDate = obj.lastPaymentDate;
+    this->lastPaymentAmount = obj.lastPaymentAmount;
 }
 
 Client::~Client() {}
@@ -38,22 +34,6 @@ void Client::setEmail(const string& email) {
     this->email = email;
 }
 
-const string& Client::getPhone() const {
-    return phone;
-}
-
-void Client::setPhone(const string& phone) {
-    this->phone = phone;
-}
-
-const Date& Client::getBirthDate() const {
-    return birthDate;
-}
-
-void Client::setBirthDate(const Date& date) {
-    this->birthDate = date;
-}
-
 int Client::getClientID() const {
     return clientID;
 }
@@ -68,4 +48,32 @@ bool Client::operator==(const Client& obj) const {
 
 bool Client::operator==(int id) const {
     return this->clientID == id;
+}
+
+void Client::setBalance(float value) {
+    this->balance = value;
+}
+
+float Client::getBalance() const {
+    return balance;
+}
+
+void Client::addBalance(double amount) {
+    balance += amount;  // Adiciona o valor ao saldo
+}
+
+void Client::setLastPaymentDate(time_t date) {
+    lastPaymentDate = date;
+}
+
+time_t Client::getLastPaymentDate() const {
+    return lastPaymentDate;
+}
+
+void Client::setLastPaymentAmount(double amount) {
+    lastPaymentAmount = amount;
+}
+
+double Client::getLastPaymentAmount() const {
+    return lastPaymentAmount;
 }

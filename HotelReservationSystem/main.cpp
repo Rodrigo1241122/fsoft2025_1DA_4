@@ -1,8 +1,3 @@
-//============================================================================
-// Name        : main.cpp
-// Author      : Tiago
-// Description : Hotel Reservation System - MVC version
-//============================================================================
 
 #include <iostream>
 #include <vector>

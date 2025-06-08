@@ -1,11 +1,14 @@
-#ifndef ACCOUNTVIEW_H
-#define ACCOUNTVIEW_H
+// AccountView.h
+#ifndef ACCOUNT_VIEW_H
+#define ACCOUNT_VIEW_H
+
+class Controller;
 
 class AccountView {
 public:
     int menuAccount() const;
     void createAccount() const;
-    void login() const;
+    void login(Controller& controller) const;
 };
 
-#endif // ACCOUNTVIEW_H
+#endif // ACCOUNT_VIEW_H

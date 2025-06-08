@@ -1,11 +1,10 @@
-// ReservationContainer.h - Tiago
-
 #ifndef HEADERS_MODEL_RESERVATIONCONTAINER_H_
 #define HEADERS_MODEL_RESERVATIONCONTAINER_H_
 
 #include <vector>
 #include <memory>
-#include "Reservation.h"
+class Reservation; // forward declaration
+
 
 class ReservationContainer {
 private:

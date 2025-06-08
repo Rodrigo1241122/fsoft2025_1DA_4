@@ -4,7 +4,7 @@
 #define HEADERS_MODEL_SERVICECONTAINER_H_
 
 #include <vector>
-#include "model/Service.h"
+#include "Service.h"
 
 class ServiceContainer {
 private:
@@ -12,8 +12,10 @@ private:
 
 public:
     void addService(const Service& service);
+    
     std::vector<Service>& getAllServices();
     const std::vector<Service>& getAllServices() const;
+    double getPriceById(int serviceId) const;
 };
 
 #endif /* HEADERS_MODEL_SERVICECONTAINER_H_ */

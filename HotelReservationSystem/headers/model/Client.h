@@ -1,9 +1,8 @@
-// Client.h - tiago
-
 #ifndef HEADERS_MODEL_CLIENT_H_
 #define HEADERS_MODEL_CLIENT_H_
 
 #include <string>
+#include <ctime>
 #include "model/Date.h"
 
 using namespace std;
@@ -14,11 +13,12 @@ private:
     int clientID;
     string name;
     string email;
-    string phone;
-    Date birthDate;
+    float balance;
+    time_t lastPaymentDate;
+    double lastPaymentAmount;
 
 public:
-    Client(const string& name, const string& email, const string& phone, const Date& birthDate);
+    Client(const std::string& name, const std::string& email);
     Client(const Client& obj);
     ~Client();
 
@@ -28,17 +28,21 @@ public:
     const string& getEmail() const;
     void setEmail(const string& email);
 
-    const string& getPhone() const;
-    void setPhone(const string& phone);
-
-    const Date& getBirthDate() const;
-    void setBirthDate(const Date& date);
-
     int getClientID() const;
     void setClientID(int id);
 
     bool operator == (const Client& obj) const;
     bool operator == (int id) const;
+
+    void setBalance(float value);
+    float getBalance() const;
+    void addBalance(double amount);  // Novo método para adicionar saldo
+
+    void setLastPaymentDate(time_t date);  // Novo método para definir a data do último pagamento
+    time_t getLastPaymentDate() const;
+
+    void setLastPaymentAmount(double amount);  // Novo método para definir o valor do último pagamento
+    double getLastPaymentAmount() const;
 };
 
 #endif /* HEADERS_MODEL_CLIENT_H_ */

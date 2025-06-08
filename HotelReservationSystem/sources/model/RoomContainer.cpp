@@ -6,6 +6,10 @@ void RoomContainer::addRoom(const Room& room) {
     rooms.push_back(room);
 }
 
+const std::vector<Room>& RoomContainer::getAll() const {
+    return rooms;
+}
+
 std::vector<Room>& RoomContainer::getAllRooms() {
     return rooms;
 }

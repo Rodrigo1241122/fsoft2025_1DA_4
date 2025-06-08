@@ -69,3 +69,11 @@ bool Activity::operator==(const Activity& obj) const {
 bool Activity::operator==(int code) const {
     return this->activityCode == code;
 }
+
+int Activity::getId() const {
+    return id;
+}
+
+float Activity::getPrice() const {
+    return price;
+}

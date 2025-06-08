@@ -16,6 +16,8 @@ private:
     string description;
     Date scheduledDate;
     int maxParticipants;
+    int id;
+    float price;
 
 public:
     Activity(const string& title, const string& description, const Date& scheduledDate, int maxParticipants);
@@ -39,6 +41,10 @@ public:
 
     bool operator == (const Activity& obj) const;
     bool operator == (int code) const;
+
+    int getId() const;
+    float getPrice() const;
+
 };
 
 #endif /* HEADERS_MODEL_ACTIVITY_H_ */

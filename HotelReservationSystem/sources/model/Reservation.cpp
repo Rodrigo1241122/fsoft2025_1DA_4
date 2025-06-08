@@ -1,6 +1,7 @@
-// Reservation.cpp - Rodrigo
-
 #include "model/Reservation.h"
+#include "model/Room.h"
+#include "Hotel.h"
+#include <iostream>
 
 int Reservation::ID = 1;
 
@@ -54,10 +55,6 @@ void Reservation::setCheckOutDate(const Date& date) {
     checkOutDate = date;
 }
 
-float Reservation::getTotalPrice() const {
-    return totalPrice;
-}
-
 void Reservation::setTotalPrice(float price) {
     totalPrice = price;
 }
@@ -84,4 +81,41 @@ bool Reservation::operator==(const Reservation& obj) const {
 
 bool Reservation::operator==(int id) const {
     return this->reservationID == id;
+}
+
+void Reservation::markAsPaid() {
+    paid = true;
+}
+
+void Reservation::setDiscountedPrice(double price) {
+    discountedPrice = price;
+}
+
+double Reservation::getTotalPrice() const {
+    if (discountedPrice >= 0)  // Se o preço com desconto for válido
+        return discountedPrice;
+    return totalPrice;  // Caso contrário, retorna o preço total original
+}
+
+void Reservation::printSummary() const {
+    std::cout << "Reservation ID: " << reservationID << "\n";  // Exibe o ID da reserva
+    std::cout << "Hotel: " << room->getHotel()->getName() << "\n";  // Exibe o nome do hotel
+    std::cout << "Room: " << room->getNumber() << "\n";  // Exibe o número do quarto
+    std::cout << "Check-in: ";
+    int day, month, year;
+    checkInDate.getDate(day, month, year);  // Obtém a data de check-in
+    std::cout << day << "/" << month << "/" << year << "\n";  // Exibe a data de check-in
+    std::cout << "Check-out: ";
+    checkOutDate.getDate(day, month, year);  // Obtém a data de check-out
+    std::cout << day << "/" << month << "/" << year << "\n";  // Exibe a data de check-out
+    std::cout << "Total Price: " << getTotalPrice() << " EUR\n";  // Exibe o preço total
+    std::cout << "Paid: " << (isPaid() ? "Yes" : "No") << "\n";  // Exibe se foi pago ou não
+}
+
+void Reservation::setPaid(bool status) {
+    paid = status;  // Define o status de pago da reserva
+}
+
+bool Reservation::isPaid() const {
+    return paid;  // Retorna se a reserva foi paga ou não
 }

@@ -14,6 +14,7 @@ public:
     void addActivity(const Activity& activity);
     std::vector<Activity>& getAllActivities();
     const std::vector<Activity>& getAllActivities() const;
+    double getPriceById(int activityId) const;
 };
 
 #endif /* HEADERS_MODEL_ACTIVITYCONTAINER_H_ */

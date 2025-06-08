@@ -24,7 +24,7 @@ int Utils::getInt(const std::string& prompt) {
 std::string Utils::getString(const std::string& prompt) {
     std::string input;
     std::cout << prompt;
-    std::getline(std::cin, input);
+    std::getline(std::cin >> std::ws, input);  // ← esta linha é crítica!
     return input;
 }
 

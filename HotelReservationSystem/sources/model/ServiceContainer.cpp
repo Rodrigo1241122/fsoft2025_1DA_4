@@ -10,6 +10,15 @@ std::vector<Service>& ServiceContainer::getAllServices() {
     return services;
 }
 
-const std::vector<Service>& ServiceContainer::getAllServices() const {
-    return services;
+#include "exceptions/ServiceUnavailableException.h"
+
+double ServiceContainer::getPriceById(int serviceId) const {
+    for (const Service& s : services) {
+        if (s.getId() == serviceId) {
+            return s.getPrice();
+        }
+    }
+    throw ServiceUnavailableException("Service not found.");
 }
+
+

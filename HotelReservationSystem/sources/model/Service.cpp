@@ -4,7 +4,7 @@
 
 int Service::CODE = 1;
 
-Service::Service(const string& name, const string& description, float price, const Date& availableDate) {
+Service::Service(const std::string& name, const std::string& description, float price, const Date& availableDate) {
     this->serviceCode = CODE++;
     this->name = name;
     this->description = description;
@@ -22,19 +22,19 @@ Service::Service(const Service& obj) {
 
 Service::~Service() {}
 
-const string& Service::getName() const {
+const std::string& Service::getName() const {
     return name;
 }
 
-void Service::setName(const string& name) {
+void Service::setName(const std::string& name) {
     this->name = name;
 }
 
-const string& Service::getDescription() const {
+const std::string& Service::getDescription() const {
     return description;
 }
 
-void Service::setDescription(const string& description) {
+void Service::setDescription(const std::string& description) {
     this->description = description;
 }
 
@@ -68,4 +68,8 @@ bool Service::operator==(const Service& obj) const {
 
 bool Service::operator==(int code) const {
     return this->serviceCode == code;
+}
+
+int Service::getId() const {
+    return serviceCode;
 }
