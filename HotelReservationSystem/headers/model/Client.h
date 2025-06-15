@@ -6,15 +6,14 @@
 #include <vector>
 #include "model/Date.h"
 #include "model/Reservation.h"
+#include "Room.h"
 
 using namespace std;
 
-// =============================
-//         Classe Client
-// =============================
+
 class Client {
 private:
-    // ==== Atributos estáticos e principais ====
+    vector<Room> selectedrooms;
     static int ID;
     int clientID;
     string name;
@@ -24,11 +23,17 @@ private:
     time_t lastPaymentDate;
     double lastPaymentAmount;
 
-    // === Reservas associadas ao cliente ===
     std::vector<Reservation> reservations;
 
 public:
-    // ==== Construtores e destrutor ====
+    void setselectedRooms(const vector<Room>& rooms) {
+        selectedrooms = rooms;
+    }
+
+    const vector<Room>& getSelectedRooms() const {
+        return selectedrooms;
+    }
+
     Client(const string& name, const string& email, const string& password, double balance);
     Client(const Client& obj);
     ~Client();

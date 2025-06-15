@@ -7,6 +7,7 @@
 #include "ActivityUnavailableException.h"
 #include "ActivitiesView.h"
 #include <set>
+#include "Room.h"
 
 using namespace std;
 
@@ -175,11 +176,19 @@ void Controller::addClient(const std::shared_ptr<Client>& client) {
 //    Reservations Management
 // ========================
 void Controller::setSelectedRooms(const std::vector<Room>& rooms) {
-    selectedRooms = rooms;
+    if (currentClient) {
+        currentClient->setselectedRooms(rooms);
+    }
 }
 
+
+
 const std::vector<Room>& Controller::getSelectedRooms() const {
-    return selectedRooms;
+    if (currentClient) {
+        return currentClient->getSelectedRooms();
+    }
+    static std::vector<Room> empty;
+    return empty;
 }
 
 void Controller::addReservation(const Reservation& res) {

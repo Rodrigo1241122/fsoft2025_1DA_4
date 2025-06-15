@@ -26,6 +26,11 @@ int SearchView::menuSearch() const {
 }
 
 void SearchView::chooseRoom(const std::vector<Hotel>& hotels, Controller& controller) const {
+    if (!controller.isLoggedIn()) {
+        std::cout << "You must be logged in to choose a room.\n";
+        return;
+    }
+
     std::cout << "\n==== Search Rooms ====\n";
 
     std::string desiredRegion;
