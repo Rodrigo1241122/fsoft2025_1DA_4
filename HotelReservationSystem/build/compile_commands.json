@@ -1,0 +1,242 @@
+[
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\main.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\main.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/main.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\controller\\Controller.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\controller\\Controller.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/controller/Controller.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/controller/Controller.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\data\\seed.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\data\\seed.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/data/seed.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/data/seed.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\AccountAlreadyExistsException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\AccountAlreadyExistsException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/AccountAlreadyExistsException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/AccountAlreadyExistsException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\ActivityUnavailableException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\ActivityUnavailableException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/ActivityUnavailableException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/ActivityUnavailableException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\CancellationNotAllowedException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\CancellationNotAllowedException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/CancellationNotAllowedException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/CancellationNotAllowedException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\CouponInvalidException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\CouponInvalidException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/CouponInvalidException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/CouponInvalidException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\InvalidCredentialsException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\InvalidCredentialsException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/InvalidCredentialsException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/InvalidCredentialsException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\InvalidReservationDetailsException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\InvalidReservationDetailsException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/InvalidReservationDetailsException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/InvalidReservationDetailsException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\PaymentFailedException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\PaymentFailedException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/PaymentFailedException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/PaymentFailedException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\ReviewValidationException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\ReviewValidationException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/ReviewValidationException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/ReviewValidationException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\RoomNotAvailableException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\RoomNotAvailableException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/RoomNotAvailableException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/RoomNotAvailableException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\exceptions\\ServiceUnavailableException.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\exceptions\\ServiceUnavailableException.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/exceptions/ServiceUnavailableException.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/exceptions/ServiceUnavailableException.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Activity.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Activity.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Activity.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Activity.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\ActivityContainer.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\ActivityContainer.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/ActivityContainer.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/ActivityContainer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Cancellation.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Cancellation.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Cancellation.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Cancellation.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Client.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Client.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Client.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Client.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Comment.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Comment.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Comment.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Comment.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\CommentContainer.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\CommentContainer.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/CommentContainer.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/CommentContainer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Coupon.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Coupon.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Coupon.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Coupon.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Date.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Date.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Date.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Date.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Hotel.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Hotel.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Hotel.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Hotel.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Payment.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Payment.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Payment.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Payment.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Person.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Person.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Person.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Person.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Reservation.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Reservation.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Reservation.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Reservation.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\ReservationContainer.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\ReservationContainer.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/ReservationContainer.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/ReservationContainer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Room.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Room.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Room.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Room.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\RoomContainer.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\RoomContainer.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/RoomContainer.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/RoomContainer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\Service.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\Service.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/Service.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/Service.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\model\\ServiceContainer.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\model\\ServiceContainer.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/model/ServiceContainer.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/model/ServiceContainer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\utils\\utils.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\utils\\utils.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/utils/utils.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/utils/utils.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\AccountView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\AccountView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/AccountView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/AccountView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\ActivitiesView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\ActivitiesView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/ActivitiesView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/ActivitiesView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\InformationView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\InformationView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/InformationView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/InformationView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\MainView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\MainView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/MainView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/MainView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\PaymentView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\PaymentView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/PaymentView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/PaymentView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\ReviewView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\ReviewView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/ReviewView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/ReviewView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\RoomView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\RoomView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/RoomView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/RoomView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\SearchView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\SearchView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/SearchView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/SearchView.cpp.obj"
+},
+{
+  "directory": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HotelReservationSystem.dir/includes_CXX.rsp -g -o CMakeFiles\\HotelReservationSystem.dir\\sources\\views\\ServiceView.cpp.obj -c \"C:\\Users\\Utilizador\\Desktop\\Faculdade\\1ano\\2 semestre\\Fsoft\\fsoft2025_1DA_4\\HotelReservationSystem\\sources\\views\\ServiceView.cpp\"",
+  "file": "C:/Users/Utilizador/Desktop/Faculdade/1ano/2 semestre/Fsoft/fsoft2025_1DA_4/HotelReservationSystem/sources/views/ServiceView.cpp",
+  "output": "CMakeFiles/HotelReservationSystem.dir/sources/views/ServiceView.cpp.obj"
+}
+]

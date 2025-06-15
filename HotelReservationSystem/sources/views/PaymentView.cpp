@@ -51,7 +51,7 @@ void PaymentView::payReservation(Controller& controller) {
         return;
     }
 
-    double totalToPay = controller.getPendingTotal();
+    double totalToPay = controller.getTotalAfterDiscount();
     double currentBalance = controller.getCurrentClient()->getBalance();
 
     std::cout << std::fixed << std::setprecision(2);
@@ -72,21 +72,11 @@ void PaymentView::payReservation(Controller& controller) {
         return;
     }
 
-    if (currentBalance < totalToPay) {
-        std::cout << "Insufficient balance to complete the payment.\n";
-        return;
+    // Usa a função de pagamento do controller, que faz tudo corretamente
+    bool success = controller.payPending();
+
+    if (success) {
+        controller.clearDiscount(); // Limpa o desconto após pagamento!
+        std::cout << "Payment successful!\n";
     }
-
-    // Marca reservas do cliente como pagas
-    for (Reservation& r : controller.getCurrentClient()->getReservations()) {
-        if (!r.isPaid()) {
-            r.setPaid(true);
-        }
-    }
-
-    controller.getCurrentClient()->setBalance(currentBalance - totalToPay);
-    controller.setLastPaymentDate(time(nullptr));
-    controller.setLastPaymentAmount(totalToPay);
-
-    std::cout << "Payment successful!\n";
 }

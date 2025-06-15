@@ -197,18 +197,27 @@ bool Controller::hasReservation() const {
 // ========================
 //    Financial Functions
 // ========================
-void Controller::applyDiscount(double newTotal) {
-    double totalBefore = getPendingTotal();
-    if (totalBefore == 0) return;
+void Controller::applyDiscountCoupon(const std::string& code) {
+    double total = getPendingTotal();
+    discountCode = code;
+    if (code == "20") discountAmount = 20.0;
+    else if (code == "20porcento") discountAmount = total * 0.2;
+    else if (code == "100") discountAmount = 100.0;
+    else if (code == "100porcento") discountAmount = total;
+    else discountAmount = 0.0;
 
-    double ratio = newTotal / totalBefore;
+    if (discountAmount > total) discountAmount = total;
+}
 
-    for (Reservation& r : reservas) {
-        if (!r.isPaid()) {
-            double adjusted = r.getTotalPrice() * ratio;
-            r.setDiscountedPrice(adjusted);
-        }
-    }
+double Controller::getTotalAfterDiscount() const {
+    double total = getPendingTotal();
+    double final = total - discountAmount;
+    return final < 0 ? 0 : final;
+}
+
+void Controller::clearDiscount() {
+    discountAmount = 0.0;
+    discountCode.clear();
 }
 
 // ========================
@@ -348,23 +357,27 @@ std::vector<Reservation>& Controller::getEditableReservations() {
     return reservas;
 }
 
-void Controller::setLastPayment(double amount, const Date& date) {
-    lastPaymentAmount = amount;
-    lastPaymentDate = date;
+void Controller::setLastPaymentAmount(double amount) {
+    if (currentClient)
+        currentClient->setLastPaymentAmount(amount);
+}
+
+void Controller::setLastPaymentDate(time_t date) {
+    if (currentClient)
+        currentClient->setLastPaymentDate(date);
 }
 
 double Controller::getLastPaymentAmount() const {
-    return lastPaymentAmount;
+    return currentClient ? currentClient->getLastPaymentAmount() : 0.0;
 }
 
 time_t Controller::getLastPaymentDate() const {
-    return lastPaymentDate.toTimeT();
+    return currentClient ? currentClient->getLastPaymentDate() : 0;
 }
 
-// ----------- NOVA VERSÃO do pagamento -----------
 bool Controller::payPending() {
     double totalToPay = getPendingTotal();
-
+    
     if (!isLoggedIn()) {
         std::cout << "You must be logged in to pay.\n";
         return false;
@@ -375,7 +388,6 @@ bool Controller::payPending() {
         return false;
     }
 
-    // Marca as reservas do cliente como pagas
     for (Reservation& r : currentClient->getReservations()) {
         if (!r.isPaid()) {
             r.markAsPaid();
@@ -383,25 +395,34 @@ bool Controller::payPending() {
     }
 
     currentClient->setBalance(currentClient->getBalance() - totalToPay);
-    std::cout << "Payment successful! " << totalToPay << " EUR deducted.\n";
+
+    setLastPaymentAmount(totalToPay - discountAmount);
+    setLastPaymentDate(time(nullptr));
+
     return true;
 }
 
-// ----------- NOVA VERSÃO do recibo -----------
 void Controller::printReceipt() const {
     if (!isLoggedIn()) {
         std::cout << "You must be logged in to view payment details.\n";
         return;
     }
+
+    double lastPayment = getLastPaymentAmount();
+    if (lastPayment <= 0.0) {
+        std::cout << "No payments have been made yet.\n";
+        return;
+    }
+
+    time_t paymentDate = getLastPaymentDate();
+
     std::cout << "\n--- Payment Receipt ---\n";
     double total = 0.0;
     for (const Reservation& r : currentClient->getReservations()) {
         if (r.isPaid()) {
             double resTotal = r.getTotalPrice();
-            // Soma serviços
             for (int sid : r.getServicesIds())
                 resTotal += getServicePriceById(sid);
-            // Soma atividades
             for (int aid : r.getActivityIds())
                 resTotal += getActivityPriceById(aid);
             std::cout << "Reservation paid: " << resTotal << " EUR\n";
@@ -409,17 +430,9 @@ void Controller::printReceipt() const {
         }
     }
     std::cout << "Total paid: " << total << " EUR\n";
+    std::cout << "Last payment: " << lastPayment << " EUR\n";
+    std::cout << "Payment date: " << ctime(&paymentDate);
     std::cout << "------------------------\n";
-}
-
-void Controller::setLastPaymentDate(time_t date) {
-    if (currentClient)
-        currentClient->setLastPaymentDate(date);
-}
-
-void Controller::setLastPaymentAmount(double amount) {
-    if (currentClient)
-        currentClient->setLastPaymentAmount(amount);
 }
 
 double Controller::getPendingTotal() const {
@@ -428,12 +441,9 @@ double Controller::getPendingTotal() const {
 
     for (const Reservation& r : currentClient->getReservations()) {
         if (!r.isPaid()) {
-            // Preço base
             total += r.getTotalPrice();
-            // Serviços
             for (int sid : r.getServicesIds())
                 total += getServicePriceById(sid);
-            // Atividades
             for (int aid : r.getActivityIds())
                 total += getActivityPriceById(aid);
         }

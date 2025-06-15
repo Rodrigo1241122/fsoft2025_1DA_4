@@ -2,46 +2,41 @@
 #define HEADERS_MODEL_CLIENT_H_
 
 #include <string>
-#include <ctime>
 #include <vector>
-#include "model/Date.h"
+#include <ctime>
 #include "model/Reservation.h"
-
-using namespace std;
 
 // =============================
 //         Classe Client
 // =============================
 class Client {
 private:
-    // ==== Atributos estáticos e principais ====
-    static int ID;
+    static int ID;             // Gerador de IDs automáticos (se usado)
     int clientID;
-    string name;
-    string email;
-    string password;
-    double balance;
-    time_t lastPaymentDate;
-    double lastPaymentAmount;
+    std::string name;
+    std::string email;
+    std::string password;
+    double balance = 0.0;
+    time_t lastPaymentDate = 0;      // Data do último pagamento (epoch time)
+    double lastPaymentAmount = 0.0;  // Valor do último pagamento
 
-    // === Reservas associadas ao cliente ===
     std::vector<Reservation> reservations;
 
 public:
     // ==== Construtores e destrutor ====
-    Client(const string& name, const string& email, const string& password, double balance);
+    Client(const std::string& name, const std::string& email, const std::string& password, double balance = 0.0);
     Client(const Client& obj);
     ~Client();
 
     // ==== Getters e setters principais ====
-    const string& getName() const;
-    void setName(const string& name);
+    const std::string& getName() const;
+    void setName(const std::string& name);
 
-    const string& getEmail() const;
-    void setEmail(const string& email);
+    const std::string& getEmail() const;
+    void setEmail(const std::string& email);
 
-    const string& getPassword() const;
-    void setPassword(const string& password);
+    const std::string& getPassword() const;
+    void setPassword(const std::string& password);
 
     int getClientID() const;
     void setClientID(int id);
@@ -51,8 +46,8 @@ public:
     bool operator==(int id) const;
 
     // ==== Gestão de saldo ====
-    void setBalance(float value);
-    float getBalance() const;
+    void setBalance(double value);
+    double getBalance() const;
     void addBalance(double amount);
 
     // ==== Gestão de pagamentos ====
