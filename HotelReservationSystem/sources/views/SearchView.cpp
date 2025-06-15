@@ -151,34 +151,17 @@ void SearchView::applyDiscountCoupon(Controller& controller) const {
     std::string code;
     std::cin >> code;
 
-<<<<<<< HEAD
+
     controller.applyDiscountCoupon(code);
     double discountedTotal = controller.getTotalAfterDiscount();
 
     if ((code != "20" && code != "20porcento" && code != "100" && code != "100porcento") || discountedTotal == total) {
-=======
-    if (code == "20") {
-        total = total - 20;
-    } else if (code == "20porcento") {
-        total = total * 0.8;
-    } else if (code == "100") {
-        total = total - 100;
-    } else if (code == "100porcento") {
-        total = 0;
-    } else {
->>>>>>> 250d007c3c3ae6fbb382b737a1aa22779c156028
+
         std::cout << "Invalid coupon code.\n";
         controller.clearDiscount();
     } else {
         std::cout << "Discount applied! New total: " << discountedTotal << " EUR\n";
     }
-<<<<<<< HEAD
-=======
-
-    if (total < 0) total = 0;
-
-    std::cout << "Discount applied! New total: " << total << " EUR\n";
->>>>>>> 250d007c3c3ae6fbb382b737a1aa22779c156028
 }
 
 void SearchView::cancelReservation(Controller& controller) const {

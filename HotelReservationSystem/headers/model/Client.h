@@ -12,6 +12,7 @@
 // =============================
 class Client {
 private:
+    vector<Room> selectedrooms;
     static int ID;             // Gerador de IDs automáticos (se usado)
     int clientID;
     std::string name;
@@ -24,10 +25,9 @@ private:
     std::vector<Reservation> reservations;
 
 public:
-<<<<<<< HEAD
     // ==== Construtores e destrutor ====
     Client(const std::string& name, const std::string& email, const std::string& password, double balance = 0.0);
-=======
+
     void setselectedRooms(const vector<Room>& rooms) {
         selectedrooms = rooms;
     }
@@ -36,8 +36,6 @@ public:
         return selectedrooms;
     }
 
-    Client(const string& name, const string& email, const string& password, double balance);
->>>>>>> 250d007c3c3ae6fbb382b737a1aa22779c156028
     Client(const Client& obj);
     ~Client();
 
