@@ -8,6 +8,7 @@
 #include "model/Room.h"
 #include "model/Reservation.h"
 #include "model/Date.h"
+#include "model/CommentContainer.h"
 
 #include "views/AccountView.h"
 #include "views/ActivitiesView.h"
@@ -21,6 +22,7 @@
 
 class Controller {
 private:
+    CommentContainer commentContainer;
     std::vector<Hotel> hoteis;
     std::shared_ptr<Client> currentClient = nullptr;
     std::vector<Room> selectedRooms;
@@ -34,6 +36,7 @@ private:
     SearchView searchView;
     ServiceView serviceView;
     ReviewView reviewView;
+    CommentContainer CommentContainer;
     PaymentView paymentView;
     ActivitiesView activitiesView;
     InformationView informationView;

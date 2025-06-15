@@ -1,5 +1,3 @@
-// Comment.h - tiago
-
 #ifndef HEADERS_MODEL_COMMENT_H_
 #define HEADERS_MODEL_COMMENT_H_
 
@@ -41,4 +39,4 @@ public:
     bool operator == (int id) const;
 };
 
-#endif /* HEADERS_MODEL_COMMENT_H_ */
+#endif

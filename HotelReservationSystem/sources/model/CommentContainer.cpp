@@ -1,5 +1,3 @@
-// CommentContainer.cpp - Tiago
-
 #include "model/CommentContainer.h"
 
 void CommentContainer::addComment(const Comment& comment) {

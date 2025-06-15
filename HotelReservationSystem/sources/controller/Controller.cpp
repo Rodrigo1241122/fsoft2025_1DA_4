@@ -77,12 +77,27 @@ void Controller::runService() {
 
 void Controller::runReview() {
     int option;
+    int rating = 0;
+    std::string comment;
     do {
         option = reviewView.menuReview();
         switch (option) {
-            case 1: reviewView.leaveStarRating(); break;
-            case 2: reviewView.writeComment(); break;
-            case 3: reviewView.submitReview(); break;
+            case 1: {
+                reviewView.leaveStarRating(rating);
+                if (rating < 1 || rating > 5) reviewView.incorrect_rating(); break;
+            }
+            case 2: reviewView.writeComment(comment); break;
+            case 3: {
+                if (currentClient) {
+                    std::string author = currentClient->getName();
+                    commentContainer.addComment(Comment(author, comment, rating,getTodayDate()));
+                    reviewView.submitReview(rating, comment, commentContainer);
+                } else {
+                    reviewView.login_review();
+                }
+                    break;
+            }
+            case 4: reviewView.view_review(commentContainer); break;
         }
     } while (option != 0);
 }

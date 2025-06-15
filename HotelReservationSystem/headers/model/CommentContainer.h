@@ -1,5 +1,3 @@
-// CommentContainer.h - Tiago
-
 #ifndef HEADERS_MODEL_COMMENTCONTAINER_H_
 #define HEADERS_MODEL_COMMENTCONTAINER_H_
 
@@ -16,4 +14,4 @@ public:
     const std::vector<Comment>& getAllComments() const;
 };
 
-#endif /* HEADERS_MODEL_COMMENTCONTAINER_H_ */
+#endif

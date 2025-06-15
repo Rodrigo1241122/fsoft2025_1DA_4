@@ -1,4 +1,3 @@
-// RoomContainer.h
 #ifndef HEADERS_MODEL_ROOMCONTAINER_H_
 #define HEADERS_MODEL_ROOMCONTAINER_H_
 

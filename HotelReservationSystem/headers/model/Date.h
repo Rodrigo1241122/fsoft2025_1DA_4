@@ -45,4 +45,4 @@ public:
 // Função global para obter a data atual
 Date getTodayDate();
 
-#endif /* HEADERS_MODEL_DATE_H_ */
+#endif
