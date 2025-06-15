@@ -1,6 +1,7 @@
 // ServiceContainer.cpp - Tiago
 
 #include "model/ServiceContainer.h"
+#include "exceptions/ServiceUnavailableException.h"
 
 void ServiceContainer::addService(const Service& service) {
     services.push_back(service);
@@ -10,7 +11,9 @@ std::vector<Service>& ServiceContainer::getAllServices() {
     return services;
 }
 
-#include "exceptions/ServiceUnavailableException.h"
+const std::vector<Service>& ServiceContainer::getAllServices() const {
+    return services;
+}
 
 double ServiceContainer::getPriceById(int serviceId) const {
     for (const Service& s : services) {

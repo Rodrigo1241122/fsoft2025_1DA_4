@@ -1,15 +1,17 @@
-// Activity.cpp - tiago
+// Activity.cpp - Tiago
 
 #include "model/Activity.h"
 
 int Activity::CODE = 1;
 
-Activity::Activity(const string& title, const string& description, const Date& scheduledDate, int maxParticipants) {
+Activity::Activity(const std::string& title, const std::string& description, const Date& scheduledDate, int maxParticipants) {
     this->activityCode = CODE++;
     this->title = title;
     this->description = description;
     this->scheduledDate = scheduledDate;
     this->maxParticipants = maxParticipants;
+    this->id = 0;
+    this->price = 0.0f;
 }
 
 Activity::Activity(const Activity& obj) {
@@ -18,23 +20,32 @@ Activity::Activity(const Activity& obj) {
     this->description = obj.description;
     this->scheduledDate = obj.scheduledDate;
     this->maxParticipants = obj.maxParticipants;
+    this->id = obj.id;
+    this->price = obj.price;
+}
+
+Activity::Activity(int id, const std::string& title, const std::string& description, float price)
+    : id(id), title(title), description(description), price(price) {
+    this->activityCode = CODE++;
+    this->scheduledDate = Date(); // valor por omissão
+    this->maxParticipants = 0;
 }
 
 Activity::~Activity() {}
 
-const string& Activity::getTitle() const {
+const std::string& Activity::getTitle() const {
     return title;
 }
 
-void Activity::setTitle(const string& title) {
+void Activity::setTitle(const std::string& title) {
     this->title = title;
 }
 
-const string& Activity::getDescription() const {
+const std::string& Activity::getDescription() const {
     return description;
 }
 
-void Activity::setDescription(const string& description) {
+void Activity::setDescription(const std::string& description) {
     this->description = description;
 }
 
@@ -62,18 +73,18 @@ void Activity::setActivityCode(int code) {
     this->activityCode = code;
 }
 
-bool Activity::operator==(const Activity& obj) const {
-    return this->activityCode == obj.activityCode;
-}
-
-bool Activity::operator==(int code) const {
-    return this->activityCode == code;
-}
-
 int Activity::getId() const {
     return id;
 }
 
 float Activity::getPrice() const {
     return price;
+}
+
+bool Activity::operator==(const Activity& obj) const {
+    return this->activityCode == obj.activityCode;
+}
+
+bool Activity::operator==(int code) const {
+    return this->activityCode == code;
 }

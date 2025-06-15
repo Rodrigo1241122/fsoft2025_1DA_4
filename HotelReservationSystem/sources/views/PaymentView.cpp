@@ -11,6 +11,7 @@ int PaymentView::menuPayment() const {
     std::cout << "\n--- Payment Menu ---\n";
     std::cout << "1. Pay Reservation\n";
     std::cout << "2. View Payment Details\n";
+    std::cout << "0. Back to Main Menu\n";
     std::cout << "Choose an option: ";
     std::cin >> option;
     return option;
@@ -76,14 +77,14 @@ void PaymentView::payReservation(Controller& controller) {
         return;
     }
 
-    for (Reservation& r : controller.getEditableReservations()) {
+    // Marca reservas do cliente como pagas
+    for (Reservation& r : controller.getCurrentClient()->getReservations()) {
         if (!r.isPaid()) {
             r.setPaid(true);
         }
     }
 
     controller.getCurrentClient()->setBalance(currentBalance - totalToPay);
-    controller.clearAdditionalCharges();
     controller.setLastPaymentDate(time(nullptr));
     controller.setLastPaymentAmount(totalToPay);
 

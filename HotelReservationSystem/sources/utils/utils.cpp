@@ -38,6 +38,5 @@ Date Utils::getDate(const std::string& label) {
 
 void Utils::pause(const std::string& message) {
     std::cout << message;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
 }

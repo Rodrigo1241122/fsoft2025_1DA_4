@@ -26,6 +26,7 @@ private:
     std::vector<Room> selectedRooms;
     std::vector<Reservation> reservas;
     std::vector<int> reservationServices;
+    std::vector<std::shared_ptr<Client>> clients;
     
     double additionalCharges = 0;
     MainView mainView;
@@ -38,7 +39,7 @@ private:
     InformationView informationView;
     RoomView roomView;
 
-    // Métodos privados para executar as ações de cada menu
+    // Funções privadas para executar as ações de cada menu
     void runAccount();
     void runSearch();
     void runService();
@@ -52,58 +53,61 @@ public:
     // Construtor
     Controller(const std::vector<Hotel>& hoteis);
     
-    // Método para rodar o sistema
+    // Função para executar o sistema
     void run();
 
-    // Métodos de login e manipulação do cliente
+    // Funções de login e manipulação do cliente
     bool isLoggedIn() const;
     void setCurrentClient(std::shared_ptr<Client> client);
     std::shared_ptr<Client> getCurrentClient() const;
+    const std::vector<std::shared_ptr<Client>>& getClients() const;
+    void addClient(const std::shared_ptr<Client>& client);
 
-    // Métodos para manipulação de reservas
+    // Funções para manipulação de reservas
     void setSelectedRooms(const std::vector<Room>& rooms);
     const std::vector<Room>& getSelectedRooms() const;
     void addReservation(const Reservation& res);
     const std::vector<Reservation>& getReservations() const;
     void removeReservation(int index);
+    bool hasReservation() const;
 
-    // Métodos financeiros
+    // Funções financeiras
     double getPendingTotal() const;
     void applyDiscount(double newTotal);
 
-    // Métodos para coletar dados do usuário e realizar cálculos
+    // Funções para coletar dados do utilizador e realizar cálculos
     Date getDateFromUser(const std::string& prompt) const;
     bool isValidReservation(const Date& checkInDate, const Date& checkOutDate) const;  // Valida as datas
     double calculateTotalPrice(const Date& checkInDate, const Date& checkOutDate, double pricePerNight) const;  // Calcula o preço total
 
-    // Métodos Serviços
+    // Funções Serviços
     void addServiceToReservation(int serviceId);
     bool hasService(int serviceId) const;
     double getServicePriceById(int serviceId) const;
     void addToPendingAmount(double value);
+    std::vector<Service> getServicesForCurrentReservationHotel() const;
 
-    // Métodos Atividades
-    bool hasActivity(int activityId) const;
+    // Funções Atividades
     std::vector<int> reservationActivities;
-    double getActivityPriceById(int activityId) const;
+    std::vector<Activity> getAvailableActivities() const;
+    const std::vector<Hotel>& getHotels() const;
+    std::vector<Activity> getActivitiesForCurrentReservationHotel() const;
+    bool hasActivity(int activityId) const;
     void addActivityToReservation(int activityId);
+    double getActivityPriceById(int activityId) const;
 
-    // --- Payment Related Methods ---
-    double getAdditionalCharges() const;  // Declaração correta para obter o valor das cobranças adicionais
-    void clearAdditionalCharges();  // Declaração para limpar as cobranças adicionais
+// Funções Pagamentos
+std::vector<Reservation>& getEditableReservations();
+void setLastPayment(double amount, const Date& date);
+double getLastPaymentAmount() const;
+time_t getLastPaymentDate() const;
+bool payPending();
+void printReceipt() const;
+void setLastPaymentDate(time_t date);
+void setLastPaymentAmount(double amount);
 
-    std::vector<Reservation>& getEditableReservations();  // Apenas uma declaração desta função
-    void setLastPayment(double amount, const Date& date);
-    double getLastPaymentAmount() const;
-    time_t getLastPaymentDate() const;
-    bool payPending();
-    void printReceipt() const;
-    void setLastPaymentDate(time_t date);
-    void setLastPaymentAmount(double amount);
-
-    // --- Payment Related Attributes ---
-    double lastPaymentAmount = 0;
-    Date lastPaymentDate;
+double lastPaymentAmount = 0;
+Date lastPaymentDate;
 };
 
 #endif // CONTROLLER_H

@@ -8,35 +8,36 @@
 
 class Service {
 private:
-    static int CODE;
-    int serviceCode;
+    int id; // Identificador único do serviço
     std::string name;
     std::string description;
     float price;
     Date availableDate;
 
 public:
-    Service(const std::string& name, const std::string& description, float price, const Date& availableDate);
+    // Construtor principal usado no seed e em todo o lado!
+    Service(int id, const std::string& name, const std::string& description, float price);
+
+    // Construtor de cópia
     Service(const Service& obj);
+
+    // (Opcional) Construtor alternativo se usares datas:
+    Service(const std::string& name, const std::string& description, float price, const Date& availableDate);
+
     ~Service();
 
+    // Getters e Setters
+    int getId() const; // Usado para mostrar o ID nos menus
     const std::string& getName() const;
     void setName(const std::string& name);
-
     const std::string& getDescription() const;
     void setDescription(const std::string& description);
-
     float getPrice() const;
     void setPrice(float price);
-
     const Date& getAvailableDate() const;
     void setAvailableDate(const Date& date);
 
-    int getServiceCode() const;
-    void setServiceCode(int code);
-
-    int getId() const; // novo alias para getServiceCode()
-
+    // Operadores de comparação
     bool operator==(const Service& obj) const;
     bool operator==(int code) const;
 };

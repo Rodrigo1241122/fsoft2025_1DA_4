@@ -8,7 +8,7 @@ class Controller; // forward declaration
 class ActivitiesView {
 public:
     int menuActivities() const;
-    void viewHotelActivities() const;
+    void viewHotelActivities(Controller& controller) const;
     void registerActivity(Controller& controller);
 };
 

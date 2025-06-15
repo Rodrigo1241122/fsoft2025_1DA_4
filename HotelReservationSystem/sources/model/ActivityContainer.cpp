@@ -22,3 +22,7 @@ double ActivityContainer::getPriceById(int activityId) const {
     }
     throw ActivityUnavailableException("Activity not found.");
 }
+
+std::vector<Activity> ActivityContainer::getActivities() const {
+    return activities;
+}

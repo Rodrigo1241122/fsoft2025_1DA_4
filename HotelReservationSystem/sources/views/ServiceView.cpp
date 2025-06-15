@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ServiceUnavailableException.h"
 #include <limits>
+#include <algorithm>
 #include "Controller.h"
 
 int ServiceView::menuService() const {
@@ -15,28 +16,52 @@ int ServiceView::menuService() const {
     return option;
 }
 
-void ServiceView::viewAvailableServices() const {
-    std::cout << "\n=== Available Services ===\n";
-    std::cout << "1. Breakfast - Enjoy a fresh breakfast buffet. (Price: 15 EUR)\n";
-    std::cout << "2. Airport Transfer - Transport to/from the airport. (Price: 25 EUR)\n";
-    std::cout << "3. Spa Access - Full-day access to the hotel spa. (Price: 30 EUR)\n";
-    std::cout << "4. Room Cleaning - Daily cleaning service. (Price: 10 EUR)\n";
+// Mostra os serviços reais do hotel da reserva atual
+void ServiceView::viewAvailableServices(const Controller& controller) const {
+    std::cout << "\n=== Available Services in All Hotels ===\n";
+    const auto& hoteis = controller.getHotels();
+    for (const Hotel& hotel : hoteis) {
+        const auto& services = hotel.getServiceContainer().getAllServices();
+        if (!services.empty()) {
+            std::cout << "Hotel: " << hotel.getName() << "\n";
+            for (const auto& service : services) {
+                std::cout << "  ID: " << service.getId()
+                          << " - " << service.getName()
+                          << " - " << service.getDescription()
+                          << " (Price: " << service.getPrice() << " EUR)\n";
+            }
+        }
+    }
     std::cout << "0. Back\n";
 }
-
-
 void ServiceView::requestService(Controller& controller) {
     if (!controller.isLoggedIn()) {
         std::cout << "You must be logged in to request a service.\n";
         return;
     }
 
-    if (controller.getReservations().empty()) {
+    // Garante que o cliente tem pelo menos uma reserva
+    if (!controller.hasReservation()) {
         std::cout << "You must have at least one reservation to request a service.\n";
         return;
     }
 
-    viewAvailableServices();
+    // Obtem apenas os serviços do hotel da reserva atual
+    auto services = controller.getServicesForCurrentReservationHotel();
+    if (services.empty()) {
+        std::cout << "No services available for your reservation's hotel.\n";
+        return;
+    }
+
+    // Mostra só estes serviços
+    std::cout << "\n=== Available Services ===\n";
+    for (const auto& service : services) {
+        std::cout << "  ID: " << service.getId()
+                  << " - " << service.getName()
+                  << " - " << service.getDescription()
+                  << " (Price: " << service.getPrice() << " EUR)\n";
+    }
+    std::cout << "0. Back\n";
 
     int id;
     std::cout << "\nEnter the ID of the service you want to request: ";
@@ -48,6 +73,16 @@ void ServiceView::requestService(Controller& controller) {
         std::cout << "Invalid input.\n";
         return;
     }
+    if (id == 0) return;
+
+    // Verifica se o ID pertence a um serviço deste hotel
+    auto it = std::find_if(services.begin(), services.end(),
+        [id](const Service& s) { return s.getId() == id; });
+
+    if (it == services.end()) {
+        std::cout << "Invalid service ID for your reservation's hotel.\n";
+        return;
+    }
 
     if (controller.hasService(id)) {
         std::cout << "You have already requested this service.\n";
@@ -55,12 +90,13 @@ void ServiceView::requestService(Controller& controller) {
     }
 
     try {
-        double price = controller.getServicePriceById(id);   // deve estar implementado
-        controller.addServiceToReservation(id);              // adiciona o ID à lista do utilizador
-        controller.addToPendingAmount(price);                // adiciona ao valor a pagar
+        double price = it->getPrice(); // Pega o preço do serviço escolhido
+        controller.addServiceToReservation(id);
+        controller.addToPendingAmount(price);
         std::cout << "Service added to your reservation! Price: " << price << " EUR\n";
     } catch (const ServiceUnavailableException& e) {
         std::cout << "Error: " << e.what() << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << "\n";
     }
 }
-

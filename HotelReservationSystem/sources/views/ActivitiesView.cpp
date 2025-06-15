@@ -5,6 +5,7 @@
 #include <limits>
 #include "exceptions/ActivityUnavailableException.h"
 #include "Controller.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -19,41 +20,75 @@ int ActivitiesView::menuActivities() const {
     return option;
 }
 
-void ActivitiesView::viewHotelActivities() const {
-    cout << "\nAvailable Activities:\n";
-    cout << "1. Spa - Relaxing full-body massage. (Price: 50 EUR)\n";
-    cout << "2. Gym Access - Unlimited gym use. (Price: 20 EUR)\n";
-    cout << "3. Pool - All-day pool access. (Price: 15 EUR)\n";
-    cout << "4. Guided Tour - Explore the city with a guide. (Price: 30 EUR)\n";
-    cout << "0. Back\n";
+void ActivitiesView::viewHotelActivities(Controller& controller) const {
+    std::cout << "\n=== Available Activities ===\n";
+   const auto& hoteis = controller.getHotels();
+    for (const Hotel& hotel : hoteis) {
+        const auto& activities = hotel.getActivityContainer().getAllActivities();
+        if (!activities.empty()) {
+            std::cout << "Hotel: " << hotel.getName() << "\n";
+            for (const auto& Activity : activities) {
+                std::cout << "  ID: " << Activity.getId()
+                          << " - " << Activity.getTitle()
+                          << " - " << Activity.getDescription()
+                          << " (Price: " << Activity.getPrice() << " EUR)\n";
+            }
+        }
+    }
+    std::cout << "0. Back\n";
 }
 
 void ActivitiesView::registerActivity(Controller& controller) {
     if (!controller.isLoggedIn()) {
-        cout << "You must be logged in to register an activity.\n";
+        std::cout << "You must be logged in to register for an activity.\n";
         return;
     }
 
     if (controller.getReservations().empty()) {
-        cout << "You must have at least one reservation to register an activity.\n";
+        std::cout << "You must have at least one reservation to register for an activity.\n";
         return;
     }
 
-    viewHotelActivities();
+    std::vector<Activity> availableActivities = controller.getActivitiesForCurrentReservationHotel();
+
+    if (availableActivities.empty()) {
+        std::cout << "No available activities for your reservation's hotel.\n";
+        return;
+    }
+
+    std::cout << "\n=== Available Activities ===\n";
+    for (const auto& activity : availableActivities) {
+        std::cout << "  ID: " << activity.getId()
+                  << " - " << activity.getTitle()
+                  << " - " << activity.getDescription()
+                  << " (Price: " << activity.getPrice() << " EUR)\n";
+    }
+    std::cout << "0. Back\n";
 
     int id;
-    cout << "\nEnter the ID of the activity you want to register: ";
-    cin >> id;
+    std::cout << "\nEnter the ID of the activity you want to register: ";
+    std::cin >> id;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input.\n";
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input.\n";
+        return;
+    }
+    if (id == 0) return;
+
+    auto it = std::find_if(
+        availableActivities.begin(),
+        availableActivities.end(),
+        [id](const Activity& a) { return a.getId() == id; });
+
+    if (it == availableActivities.end()) {
+        std::cout << "Invalid activity ID for your hotel.\n";
         return;
     }
 
     if (controller.hasActivity(id)) {
-        cout << "You have already registered for this activity.\n";
+        std::cout << "You have already registered this activity.\n";
         return;
     }
 
@@ -61,8 +96,11 @@ void ActivitiesView::registerActivity(Controller& controller) {
         double price = controller.getActivityPriceById(id);
         controller.addActivityToReservation(id);
         controller.addToPendingAmount(price);
-        cout << "Activity registered! Price: " << price << " EUR\n";
+        std::cout << "Activity registered successfully! Price: " << price << " EUR\n";
     } catch (const ActivityUnavailableException& e) {
-        cout << "Error: " << e.what() << "\n";
+        std::cout << "Error: " << e.what() << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << "\n";
     }
 }
+

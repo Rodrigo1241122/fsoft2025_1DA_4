@@ -6,13 +6,20 @@
 #include <algorithm>
 #include "ActivityUnavailableException.h"
 #include "ActivitiesView.h"
+#include <set>
 
 using namespace std;
 
+// ========================
+//    Construtor
+// ========================
 Controller::Controller(const std::vector<Hotel>& hoteis)
     : hoteis(hoteis),
       informationView(hoteis) {}
 
+// ========================
+//    Funções Main Menu
+// ========================
 void Controller::run() {
     int option;
     do {
@@ -28,12 +35,15 @@ void Controller::run() {
     } while (option != 0);
 }
 
+// ========================
+//    Menu Runners
+// ========================
 void Controller::runAccount() {
     int option;
     do {
         option = accountView.menuAccount();
         switch (option) {
-            case 1: accountView.createAccount(); break;
+            case 1: accountView.createAccount(*this); break;
             case 2: accountView.login(*this); break;
         }
     } while (option != 0);
@@ -49,9 +59,7 @@ void Controller::runSearch() {
             case 3: runInformation(); break;
             case 4: searchView.reserveRoom(*this); break;
             case 5: searchView.applyDiscountCoupon(*this); break;
-            case 6: 
-            searchView.cancelReservation(*this); 
-            break;
+            case 6: searchView.cancelReservation(*this); break;
         }
     } while (option != 0);
 }
@@ -61,7 +69,7 @@ void Controller::runService() {
     do {
         option = serviceView.menuService();
         switch (option) {
-            case 1: serviceView.viewAvailableServices(); break;
+            case 1: serviceView.viewAvailableServices(hoteis); break;
             case 2: serviceView.requestService(*this); break;
         }
     } while (option != 0);
@@ -95,7 +103,7 @@ void Controller::runActivities() {
     do {
         option = activitiesView.menuActivities();
         switch (option) {
-            case 1: activitiesView.viewHotelActivities(); break;
+            case 1: activitiesView.viewHotelActivities(*this); break;
             case 2: activitiesView.registerActivity(*this); break;
         }
     } while (option != 0);
@@ -112,6 +120,9 @@ void Controller::runInformation() {
     } while (option != 0);
 }
 
+// ========================
+//    Login & Client Management
+// ========================
 bool Controller::isLoggedIn() const {
     return currentClient != nullptr;
 }
@@ -124,6 +135,17 @@ std::shared_ptr<Client> Controller::getCurrentClient() const {
     return currentClient;
 }
 
+const std::vector<std::shared_ptr<Client>>& Controller::getClients() const {
+    return clients;
+}
+
+void Controller::addClient(const std::shared_ptr<Client>& client) {
+    clients.push_back(client);
+}
+
+// ========================
+//    Reservations Management
+// ========================
 void Controller::setSelectedRooms(const std::vector<Room>& rooms) {
     selectedRooms = rooms;
 }
@@ -134,22 +156,32 @@ const std::vector<Room>& Controller::getSelectedRooms() const {
 
 void Controller::addReservation(const Reservation& res) {
     reservas.push_back(res);
+    if (isLoggedIn()) {
+        currentClient->addReservation(res);
+    }
 }
 
 const std::vector<Reservation>& Controller::getReservations() const {
     return reservas;
 }
 
-double Controller::getPendingTotal() const {
-    double total = 0;
-    for (const Reservation& r : reservas) {
-        if (!r.isPaid()) {
-            total += r.getTotalPrice();
-        }
+void Controller::removeReservation(int index) {
+    if (index >= 0 && index < (int)reservas.size()) {
+        reservas.erase(reservas.begin() + index);
     }
-    return total;
 }
 
+const std::vector<Hotel>& Controller::getHotels() const {
+    return hoteis;
+}
+
+bool Controller::hasReservation() const {
+    if (!isLoggedIn()) return false;
+    return !currentClient->getReservations().empty();
+}
+// ========================
+//    Financial Functions
+// ========================
 void Controller::applyDiscount(double newTotal) {
     double totalBefore = getPendingTotal();
     if (totalBefore == 0) return;
@@ -164,43 +196,38 @@ void Controller::applyDiscount(double newTotal) {
     }
 }
 
-void Controller::removeReservation(int index) {
-    if (index >= 0 && index < (int)reservas.size()) {
-        reservas.erase(reservas.begin() + index);
-    }
-}
-
+// ========================
+//    User Input & Calculation Helpers
+// ========================
 Date Controller::getDateFromUser(const std::string& prompt) const {
     int day, month, year;
-    std::cout << prompt;  // Exibe a solicitação para o usuário
-    std::cin >> day >> month >> year;  // Lê a entrada de data
-
-    // Criação e retorno de um objeto Date com os valores inseridos
+    std::cout << prompt;
+    std::cin >> day >> month >> year;
     Date userDate(day, month, year);
     return userDate;
 }
 
 bool Controller::isValidReservation(const Date& checkInDate, const Date& checkOutDate) const {
-    Date today = getTodayDate();  // Método que retorna a data atual
-
+    Date today = getTodayDate();
     if (checkInDate.isBefore(today)) {
         std::cout << "Check-in date cannot be in the past.\n";
         return false;
     }
-
     if (checkInDate.isAfter(checkOutDate)) {
         std::cout << "Check-out date cannot be before check-in date.\n";
         return false;
     }
-
     return true;
 }
 
 double Controller::calculateTotalPrice(const Date& checkInDate, const Date& checkOutDate, double pricePerNight) const {
-    int numNights = checkInDate.daysBetween(checkOutDate);  // Método que calcula o número de noites
+    int numNights = checkInDate.daysBetween(checkOutDate);
     return numNights * pricePerNight;
 }
 
+// ========================
+//    Service Functions
+// ========================
 void Controller::addServiceToReservation(int serviceId) {
     reservationServices.push_back(serviceId);
 }
@@ -223,31 +250,84 @@ void Controller::addToPendingAmount(double value) {
     additionalCharges += value;
 }
 
+std::vector<Service> Controller::getServicesForCurrentReservationHotel() const {
+    if (!currentClient || currentClient->getReservations().empty()) {
+        return {};
+    }
+    int hotelId = currentClient->getReservations().back().getHotelId();
+    for (const auto& hotel : hoteis) {
+        if (hotel.getId() == hotelId) {
+            return hotel.getServiceContainer().getAllServices();
+        }
+    }
+    return {};
+}
+
+// ========================
+//    Activity Functions
+// ========================
 bool Controller::hasActivity(int activityId) const {
-    return std::find(reservationActivities.begin(), reservationActivities.end(), activityId) != reservationActivities.end();
+    if (!hasReservation()) return false;
+
+    return currentClient->getReservations().back().hasActivity(activityId);
 }
 
 double Controller::getActivityPriceById(int activityId) const {
-    for (const Hotel& h : hoteis) {
-        try {
-            return h.getActivityContainer().getPriceById(activityId);
-        } catch (...) {
+    if (!hasReservation()) return 0.0;
+
+    int hotelId = currentClient->getReservations().back().getHotelId();
+
+    for (const auto& hotel : hoteis) {
+        if (hotel.getId() == hotelId) {
+            const auto& activities = hotel.getActivityContainer().getActivities();
+            for (const auto& activity : activities) {
+                if (activity.getId() == activityId)
+                    return activity.getPrice();
+            }
         }
     }
+
     throw ActivityUnavailableException("Activity not found.");
 }
 
 void Controller::addActivityToReservation(int activityId) {
-    reservationActivities.push_back(activityId);
+    if (!hasReservation()) return;
+
+    currentClient->getReservations().back().addActivity(activityId);
 }
 
-double Controller::getAdditionalCharges() const {
-    return additionalCharges;
+std::vector<Activity> Controller::getAvailableActivities() const {
+    std::vector<Activity> activities;
+    std::set<int> seenIds; // evitar duplicados (caso os hotéis tenham atividades com o mesmo ID)
+    for (const Hotel& h : hoteis) {
+        for (const Activity& a : h.getActivityContainer().getActivities()) {
+            if (seenIds.insert(a.getId()).second) { // só adiciona se não foi já adicionado
+                activities.push_back(a);
+            }
+        }
+    }
+    return activities;
 }
 
-void Controller::clearAdditionalCharges() {
-    additionalCharges = 0;
+std::vector<Activity> Controller::getActivitiesForCurrentReservationHotel() const {
+    if (!currentClient || currentClient->getReservations().empty()) {
+        return {};
+    }
+
+    int hotelId = currentClient->getReservations().back().getHotelId();
+
+    for (const auto& hotel : hoteis) {
+        if (hotel.getId() == hotelId) {
+            return hotel.getActivityContainer().getActivities();
+        }
+    }
+
+    return {};
 }
+
+// ========================
+//    Payment Functions
+// ========================
 
 std::vector<Reservation>& Controller::getEditableReservations() {
     return reservas;
@@ -263,18 +343,12 @@ double Controller::getLastPaymentAmount() const {
 }
 
 time_t Controller::getLastPaymentDate() const {
-    return lastPaymentDate.toTimeT();  // Usando o método toTimeT() para converter Date para time_t
+    return lastPaymentDate.toTimeT();
 }
 
+// ----------- NOVA VERSÃO do pagamento -----------
 bool Controller::payPending() {
-    double totalToPay = 0;
-
-    for (Reservation& r : reservas) {
-        if (!r.isPaid()) {
-            totalToPay += r.getTotalPrice();
-        }
-    }
-    totalToPay += additionalCharges;
+    double totalToPay = getPendingTotal();
 
     if (!isLoggedIn()) {
         std::cout << "You must be logged in to pay.\n";
@@ -286,36 +360,40 @@ bool Controller::payPending() {
         return false;
     }
 
-    for (Reservation& r : reservas) {
+    // Marca as reservas do cliente como pagas
+    for (Reservation& r : currentClient->getReservations()) {
         if (!r.isPaid()) {
             r.markAsPaid();
         }
     }
 
     currentClient->setBalance(currentClient->getBalance() - totalToPay);
-    additionalCharges = 0;
-
     std::cout << "Payment successful! " << totalToPay << " EUR deducted.\n";
     return true;
 }
 
+// ----------- NOVA VERSÃO do recibo -----------
 void Controller::printReceipt() const {
     if (!isLoggedIn()) {
         std::cout << "You must be logged in to view payment details.\n";
         return;
     }
-
     std::cout << "\n--- Payment Receipt ---\n";
-    for (const Reservation& r : reservas) {
+    double total = 0.0;
+    for (const Reservation& r : currentClient->getReservations()) {
         if (r.isPaid()) {
-            std::cout << "Reservation paid: " << r.getTotalPrice() << " EUR\n";
+            double resTotal = r.getTotalPrice();
+            // Soma serviços
+            for (int sid : r.getServicesIds())
+                resTotal += getServicePriceById(sid);
+            // Soma atividades
+            for (int aid : r.getActivityIds())
+                resTotal += getActivityPriceById(aid);
+            std::cout << "Reservation paid: " << resTotal << " EUR\n";
+            total += resTotal;
         }
     }
-    if (additionalCharges == 0) {
-        std::cout << "All extra charges have been paid.\n";
-    } else {
-        std::cout << "Unpaid additional charges: " << additionalCharges << " EUR\n";
-    }
+    std::cout << "Total paid: " << total << " EUR\n";
     std::cout << "------------------------\n";
 }
 
@@ -327,4 +405,23 @@ void Controller::setLastPaymentDate(time_t date) {
 void Controller::setLastPaymentAmount(double amount) {
     if (currentClient)
         currentClient->setLastPaymentAmount(amount);
+}
+
+double Controller::getPendingTotal() const {
+    double total = 0.0;
+    if (!isLoggedIn() || !currentClient) return total;
+
+    for (const Reservation& r : currentClient->getReservations()) {
+        if (!r.isPaid()) {
+            // Preço base
+            total += r.getTotalPrice();
+            // Serviços
+            for (int sid : r.getServicesIds())
+                total += getServicePriceById(sid);
+            // Atividades
+            for (int aid : r.getActivityIds())
+                total += getActivityPriceById(aid);
+        }
+    }
+    return total;
 }

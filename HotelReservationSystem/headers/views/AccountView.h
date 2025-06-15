@@ -7,7 +7,7 @@ class Controller;
 class AccountView {
 public:
     int menuAccount() const;
-    void createAccount() const;
+    void createAccount(Controller& controller) const;
     void login(Controller& controller) const;
 };
 

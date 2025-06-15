@@ -6,7 +6,7 @@ class Controller;
 class ServiceView {
 public:
     int menuService() const;
-    void viewAvailableServices() const;
+    void viewAvailableServices(const Controller& controller) const;
     void requestService(Controller& controller);
 };
 

@@ -2,10 +2,12 @@
 #define HEADERS_MODEL_RESERVATION_H_
 
 #include <memory>
-#include "model/Client.h"
+#include <vector>
 #include "model/Room.h"
 #include "model/Date.h"
 #include "Hotel.h"
+
+class Client;
 
 enum class ReservationStatus { Pending, Confirmed, Canceled };
 
@@ -21,6 +23,9 @@ private:
     double discountedPrice = -1;
     bool paid = false;
     ReservationStatus status;
+    int hotelId;
+    std::vector<int> activityIds;
+    std::vector<int> serviceIds;
 
 public:
     Reservation(std::shared_ptr<Client> client, std::shared_ptr<Room> room,
@@ -42,8 +47,16 @@ public:
     void setCheckOutDate(const Date& date);
 
     void setTotalPrice(float price);
+    double getTotalPrice() const;
+    void setDiscountedPrice(double price);
+
     int getReservationID() const;
     void setReservationID(int id);
+
+    const std::vector<int>& getActivityIds() const;
+    const std::vector<int>& getServicesIds() const;
+    int getHotelId() const;
+    void setHotelId(int id);
 
     ReservationStatus getStatus() const;
     void setStatus(ReservationStatus newStatus);
@@ -53,13 +66,12 @@ public:
 
     bool isPaid() const;
     void markAsPaid();
+    void setPaid(bool status);
 
-    void setDiscountedPrice(double price);
-    double getTotalPrice() const;
+    bool hasActivity(int activityId) const;
+    void addActivity(int activityId);
 
-    void printSummary() const;  // Declaração de printSummary
-
-    void setPaid(bool status);  // Declaração de setPaid
+    void printSummary() const;
 };
 
 #endif /* HEADERS_MODEL_RESERVATION_H_ */

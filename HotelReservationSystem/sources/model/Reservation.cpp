@@ -1,9 +1,18 @@
 #include "model/Reservation.h"
 #include "model/Room.h"
 #include "Hotel.h"
+#include "Client.h"
 #include <iostream>
+#include <algorithm>
 
+// =======================
+// Definição do ID estático
+// =======================
 int Reservation::ID = 1;
+
+// =======================
+// Construtores & Destrutor
+// =======================
 
 Reservation::Reservation(std::shared_ptr<Client> client, std::shared_ptr<Room> room,
                          const Date& checkIn, const Date& checkOut, float totalPrice,
@@ -12,16 +21,27 @@ Reservation::Reservation(std::shared_ptr<Client> client, std::shared_ptr<Room> r
       totalPrice(totalPrice), status(status)
 {
     reservationID = ID++;
+    if (room && room->getHotel()) {
+        hotelId = room->getHotel()->getId();
+    } else {
+        hotelId = -1;
+    }
 }
 
 Reservation::Reservation(const Reservation& obj)
     : client(obj.client), room(obj.room), checkInDate(obj.checkInDate),
-      checkOutDate(obj.checkOutDate), totalPrice(obj.totalPrice), status(obj.status)
+      checkOutDate(obj.checkOutDate), totalPrice(obj.totalPrice), status(obj.status),
+      paid(obj.paid), discountedPrice(obj.discountedPrice), hotelId(obj.hotelId),
+      activityIds(obj.activityIds) // Copiar também as atividades
 {
     reservationID = obj.reservationID;
 }
 
 Reservation::~Reservation() {}
+
+// =======================
+// Getters & Setters
+// =======================
 
 std::shared_ptr<Client> Reservation::getClient() const {
     return client;
@@ -37,6 +57,11 @@ std::shared_ptr<Room> Reservation::getRoom() const {
 
 void Reservation::setRoom(std::shared_ptr<Room> room) {
     this->room = room;
+    if (room && room->getHotel()) {
+        hotelId = room->getHotel()->getId();
+    } else {
+        hotelId = -1;
+    }
 }
 
 const Date& Reservation::getCheckInDate() const {
@@ -59,6 +84,20 @@ void Reservation::setTotalPrice(float price) {
     totalPrice = price;
 }
 
+double Reservation::getTotalPrice() const {
+    if (discountedPrice >= 0)
+        return discountedPrice;
+    return totalPrice;
+}
+
+void Reservation::setDiscountedPrice(double price) {
+    discountedPrice = price;
+}
+
+// =======================
+// Métodos de ID
+// =======================
+
 int Reservation::getReservationID() const {
     return reservationID;
 }
@@ -66,6 +105,25 @@ int Reservation::getReservationID() const {
 void Reservation::setReservationID(int id) {
     reservationID = id;
 }
+
+int Reservation::getHotelId() const {
+    return hotelId;
+}
+
+void Reservation::setHotelId(int id) {
+    hotelId = id;
+}
+
+const std::vector<int>& Reservation::getActivityIds() const {
+    return activityIds;
+}
+
+const std::vector<int>& Reservation::getServicesIds() const {
+    return serviceIds;
+}
+// =======================
+// Estado da Reserva & Comparação
+// =======================
 
 ReservationStatus Reservation::getStatus() const {
     return status;
@@ -83,39 +141,51 @@ bool Reservation::operator==(int id) const {
     return this->reservationID == id;
 }
 
+// =======================
+// Pagamento
+// =======================
+
+bool Reservation::isPaid() const {
+    return paid;
+}
+
 void Reservation::markAsPaid() {
     paid = true;
 }
 
-void Reservation::setDiscountedPrice(double price) {
-    discountedPrice = price;
+void Reservation::setPaid(bool status) {
+    paid = status;
 }
 
-double Reservation::getTotalPrice() const {
-    if (discountedPrice >= 0)  // Se o preço com desconto for válido
-        return discountedPrice;
-    return totalPrice;  // Caso contrário, retorna o preço total original
+// =======================
+// Atividades
+// =======================
+
+bool Reservation::hasActivity(int activityId) const {
+    return std::find(activityIds.begin(), activityIds.end(), activityId) != activityIds.end();
 }
+
+void Reservation::addActivity(int activityId) {
+    if (!hasActivity(activityId)) {
+        activityIds.push_back(activityId);
+    }
+}
+
+// =======================
+// Utilitários
+// =======================
 
 void Reservation::printSummary() const {
-    std::cout << "Reservation ID: " << reservationID << "\n";  // Exibe o ID da reserva
-    std::cout << "Hotel: " << room->getHotel()->getName() << "\n";  // Exibe o nome do hotel
-    std::cout << "Room: " << room->getNumber() << "\n";  // Exibe o número do quarto
+    std::cout << "Reservation ID: " << reservationID << "\n";
+    std::cout << "Hotel: " << hotelId << "\n";
+    std::cout << "Room: " << room->getNumber() << "\n";
     std::cout << "Check-in: ";
     int day, month, year;
-    checkInDate.getDate(day, month, year);  // Obtém a data de check-in
-    std::cout << day << "/" << month << "/" << year << "\n";  // Exibe a data de check-in
+    checkInDate.getDate(day, month, year);
+    std::cout << day << "/" << month << "/" << year << "\n";
     std::cout << "Check-out: ";
-    checkOutDate.getDate(day, month, year);  // Obtém a data de check-out
-    std::cout << day << "/" << month << "/" << year << "\n";  // Exibe a data de check-out
-    std::cout << "Total Price: " << getTotalPrice() << " EUR\n";  // Exibe o preço total
-    std::cout << "Paid: " << (isPaid() ? "Yes" : "No") << "\n";  // Exibe se foi pago ou não
-}
-
-void Reservation::setPaid(bool status) {
-    paid = status;  // Define o status de pago da reserva
-}
-
-bool Reservation::isPaid() const {
-    return paid;  // Retorna se a reserva foi paga ou não
+    checkOutDate.getDate(day, month, year);
+    std::cout << day << "/" << month << "/" << year << "\n";
+    std::cout << "Total Price: " << getTotalPrice() << " EUR\n";
+    std::cout << "Paid: " << (isPaid() ? "Yes" : "No") << "\n";
 }
