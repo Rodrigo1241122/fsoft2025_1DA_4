@@ -38,6 +38,8 @@ int AccountView::menuAccount() const {
     return option;
 }
 
+
+
 void AccountView::createAccount(Controller& controller) const {
     std::string email;
     while (true) {
@@ -127,4 +129,20 @@ void AccountView::login(Controller& controller) const {
         }
     }
 }
+
+int AccountView::menu_logout() const {
+    int option;
+    std::cout << "\n=== Account Menu ===\n";
+    std::cout << "1. Logout\n";
+    std::cout << "0. Back\n";
+    std::cout << "Option: ";
+    std::cin >> option;
+    return option;
+}
+
+void AccountView::logout_confirmation() {
+    std::cout << "You logged out successfully. \n\n\n";
+}
+
+
 

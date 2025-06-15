@@ -6,7 +6,7 @@
 std::string roomTypeToString(RoomType type) {
     switch (type) {
         case RoomType::STANDARD: return "Standard";
-        case RoomType::SUITE:   return "Double";
+        case RoomType::SUITE:   return "Suite";
         case RoomType::DELUXE:   return "Deluxe";
         default: return "Unknown";
     }

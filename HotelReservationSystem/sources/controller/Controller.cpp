@@ -40,13 +40,26 @@ void Controller::run() {
 // ========================
 void Controller::runAccount() {
     int option;
-    do {
+    if (currentClient) {
+        option = accountView.menu_logout();
+        switch (option) {
+            case 1: {
+                currentClient = nullptr;
+                accountView.logout_confirmation();
+                break;
+            }
+            case 0: return;
+        }
+
+    }
+    else {
         option = accountView.menuAccount();
         switch (option) {
             case 1: accountView.createAccount(*this); break;
             case 2: accountView.login(*this); break;
+            case 0: return;
         }
-    } while (option != 0);
+    }
 }
 
 void Controller::runSearch() {
@@ -440,3 +453,5 @@ double Controller::getPendingTotal() const {
     }
     return total;
 }
+
+

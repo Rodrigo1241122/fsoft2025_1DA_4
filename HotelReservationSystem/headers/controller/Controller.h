@@ -52,6 +52,7 @@ private:
     void runInformation();
     void searchAvailableRooms();
 
+
 public:
     // Construtor
     Controller(const std::vector<Hotel>& hoteis);
@@ -108,6 +109,7 @@ bool payPending();
 void printReceipt() const;
 void setLastPaymentDate(time_t date);
 void setLastPaymentAmount(double amount);
+
 
 double lastPaymentAmount = 0;
 Date lastPaymentDate;

@@ -9,6 +9,7 @@
 #include <limits>
 #include "Date.h"
 
+
 int SearchView::menuSearch() const {
     int option;
     std::cout << "\n=== Search Menu ===\n";
@@ -145,25 +146,22 @@ void SearchView::applyDiscountCoupon(Controller& controller) const {
     std::string code;
     std::cin >> code;
 
-    double discountedTotal = total;
-
     if (code == "20") {
-        discountedTotal -= 20;
+        total = total - 20;
     } else if (code == "20porcento") {
-        discountedTotal *= 0.8;
+        total = total * 0.8;
     } else if (code == "100") {
-        discountedTotal -= 100;
+        total = total - 100;
     } else if (code == "100porcento") {
-        discountedTotal = 0;
+        total = 0;
     } else {
         std::cout << "Invalid coupon code.\n";
         return;
     }
 
-    if (discountedTotal < 0) discountedTotal = 0;
+    if (total < 0) total = 0;
 
-    controller.applyDiscount(discountedTotal);
-    std::cout << "Discount applied! New total: " << discountedTotal << " EUR\n";
+    std::cout << "Discount applied! New total: " << total << " EUR\n";
 }
 
 void SearchView::cancelReservation(Controller& controller) const {
@@ -237,3 +235,5 @@ void SearchView::searchAvailableRooms(const std::vector<Hotel>& hotels) const {
         printAvailableRooms(availableRooms);
     }
 }
+
+

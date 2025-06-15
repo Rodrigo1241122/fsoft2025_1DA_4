@@ -54,8 +54,8 @@ void InformationView::viewRoomInformation() const {
     std::cout << "STANDARD:\n";
     std::cout << "   Basic and affordable room. Includes a single bed, TV, and Wi-Fi. Ideal for short stays.\n\n";
 
-    std::cout << "DOUBLE:\n";
-    std::cout << "   Spacious room with a double bed. Suitable for couples or guests who prefer comfort.\n\n";
+    std::cout << "SUITE:\n";
+    std::cout << "   A luxurious and spacious room, perfect for couples and for a very nice stay.\n\n";
 
     std::cout << "DELUXE:\n";
     std::cout << "   Premium room with a king-size bed, private balcony, minibar, and panoramic view.\n\n";
