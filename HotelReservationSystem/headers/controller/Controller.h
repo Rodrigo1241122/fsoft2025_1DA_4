@@ -59,6 +59,7 @@ private:
     void runInformation();
     void searchAvailableRooms();
 
+
 public:
     // Construtor
     Controller(const std::vector<Hotel>& hoteis);

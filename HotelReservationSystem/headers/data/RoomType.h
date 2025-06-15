@@ -5,14 +5,14 @@
 
 enum class RoomType {
     STANDARD,
-    DOUBLE,
+    SUITE,
     DELUXE
 };
 
 inline const std::string toString(RoomType type) {
     switch (type) {
         case RoomType::STANDARD: return "Standard";
-        case RoomType::DOUBLE: return "Double";
+        case RoomType::SUITE: return "Suite";
         case RoomType::DELUXE: return "Deluxe";
         default: return "Unknown";
     }

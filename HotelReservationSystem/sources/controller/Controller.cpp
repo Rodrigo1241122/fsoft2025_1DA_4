@@ -7,6 +7,7 @@
 #include "ActivityUnavailableException.h"
 #include "ActivitiesView.h"
 #include <set>
+#include "Room.h"
 
 using namespace std;
 
@@ -40,13 +41,26 @@ void Controller::run() {
 // ========================
 void Controller::runAccount() {
     int option;
-    do {
+    if (currentClient) {
+        option = accountView.menu_logout();
+        switch (option) {
+            case 1: {
+                currentClient = nullptr;
+                accountView.logout_confirmation();
+                break;
+            }
+            case 0: return;
+        }
+
+    }
+    else {
         option = accountView.menuAccount();
         switch (option) {
             case 1: accountView.createAccount(*this); break;
             case 2: accountView.login(*this); break;
+            case 0: return;
         }
-    } while (option != 0);
+    }
 }
 
 void Controller::runSearch() {
@@ -162,11 +176,19 @@ void Controller::addClient(const std::shared_ptr<Client>& client) {
 //    Reservations Management
 // ========================
 void Controller::setSelectedRooms(const std::vector<Room>& rooms) {
-    selectedRooms = rooms;
+    if (currentClient) {
+        currentClient->setselectedRooms(rooms);
+    }
 }
 
+
+
 const std::vector<Room>& Controller::getSelectedRooms() const {
-    return selectedRooms;
+    if (currentClient) {
+        return currentClient->getSelectedRooms();
+    }
+    static std::vector<Room> empty;
+    return empty;
 }
 
 void Controller::addReservation(const Reservation& res) {
@@ -450,3 +472,5 @@ double Controller::getPendingTotal() const {
     }
     return total;
 }
+
+

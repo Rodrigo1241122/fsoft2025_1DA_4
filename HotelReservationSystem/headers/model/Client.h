@@ -5,6 +5,7 @@
 #include <vector>
 #include <ctime>
 #include "model/Reservation.h"
+#include "Room.h"
 
 // =============================
 //         Classe Client
@@ -23,8 +24,20 @@ private:
     std::vector<Reservation> reservations;
 
 public:
+<<<<<<< HEAD
     // ==== Construtores e destrutor ====
     Client(const std::string& name, const std::string& email, const std::string& password, double balance = 0.0);
+=======
+    void setselectedRooms(const vector<Room>& rooms) {
+        selectedrooms = rooms;
+    }
+
+    const vector<Room>& getSelectedRooms() const {
+        return selectedrooms;
+    }
+
+    Client(const string& name, const string& email, const string& password, double balance);
+>>>>>>> 250d007c3c3ae6fbb382b737a1aa22779c156028
     Client(const Client& obj);
     ~Client();
 
